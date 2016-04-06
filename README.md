@@ -5,6 +5,8 @@ Name: Pet Finder
 
 The main functionality of the Pet Finder is to be able to post lost pets, their pictures, names, and the last date and location they were seen.  Their owners are able to create their own profile and add their lost pet so they can be notified once their pet is found.
 
+Link to Heroku: http://protected-sea-74069.herokuapp.com
+
 Technologies Used:
 jQuery
 AJAX
@@ -26,3 +28,7 @@ Existing Features:
 Planned Features:
 * Including Google Maps API
 * Create log-in for owners to manage their lost pets
+
+SCREENSHOT HERE
+
+Github link: https://github.com/eamoses/project-01
