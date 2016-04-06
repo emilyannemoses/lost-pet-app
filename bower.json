@@ -1,0 +1,22 @@
+{
+  "name": "project-01",
+  "description": "Pet Finder",
+  "main": "index.js",
+  "authors": [
+    "eamoses <e.a.moses@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/eamoses/project-01",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "~2.2.2",
+    "bootstrap": "~3.3.6",
+    "handlebars": "~4.0.5"
+  }
+}
