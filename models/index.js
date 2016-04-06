@@ -2,3 +2,8 @@
 mongoose.connect( process.env.MONGOLAB_URI ||
                       process.env.MONGOHQ_URL ||
                       "YOUR CURRENT LOCALHOST DB CONNECTION STRING HERE" );
+
+var Cat = require('./cat');
+
+module.exports.Cat = Cat;
+// module.exports.Owner = require('./owner');
