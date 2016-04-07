@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var CatSchema = new Schema({
   petName: String,
-  picUrl: String,
+  pictureUrl: String,
   dateLastSeen: String,
   locationLastSeen: String
   // owner: Owner.schema

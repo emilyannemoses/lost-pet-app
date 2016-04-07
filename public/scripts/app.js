@@ -31,12 +31,11 @@ $(function(){
       //GETTING ONE CAT ON THE PAGE
       $.get('/api/cats').success(function (cats) {
         cats.forEach(function(cat) {
-        renderCats(cat);
+        renderCat(cat);
         });
       });
 
   });
-
 
   // this function takes a single cat and renders it to the page
   function renderCat(cat) {

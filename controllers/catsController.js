@@ -1,3 +1,6 @@
+/************
+ * DATABASE *
+ ************/
 var db = require('../models');
 
 // GET /api/albums
