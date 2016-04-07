@@ -1,17 +1,29 @@
+html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+.fill{width:100%;height:100%;background-position:center;background-size:cover;}
+
+/* faster sliding speed */
+.carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}
+
+/* keep full widget on smaller screens */
+@media (max-width: 767px) {
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 .btn1 {
   text-align: center;
   margin-left: 10%;
 }
-.carousel-inner {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-img {
-  width: 100%;
-  height: 100%;
-}
-#catImage{
+div.fill{
+  background-image:url('https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg');
   -webkit-filter: blur(7px);
   filter: blur(7px);
   z-index: -1;
@@ -80,7 +92,7 @@ img {
   bottom:0;
   left:0;
   right:0;
-  margin-bottom: 45%;
+  margin-bottom: 40%;
   margin-left: 2%;
   width: 5%;
   height: 5%;

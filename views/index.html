@@ -35,76 +35,38 @@
     </div>
     </div>
     </div>
-    <!--  Carousel - consult the Twitter Bootstrap docs at
-      http://twitter.github.com/bootstrap/javascript.html#carousel -->
-<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
+
+<div class="container fill">
+<div id="this-carousel-id" class="carousel slide">
   <div class="carousel-inner">
+    <div class="active item">
+      <div class="fill">
+        <div class="container">
 
-      <!-- CLOSE POPUP WINDOW BUTTON -->
-
-      <div class="col-md-6 col-md-offset-3 popupPost hidden">
-        <button name = "button" class = "close">Close</button>
-        <p>PUT HANDLEBARS INSIDE HERE:</p>
-        <p>WILL CONTAIN CAT NAME, URL, LAST SEEN LOCATION AND DATE </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button type="button" class="btn1 addCatToDb btn-primary btn-sm">Post</button>
+        </div>
       </div>
-
-      <div class="col-md-6 col-md-offset-3 popupUpdate hidden">
-        <button name = "button" class = "close">Close</button>
-        <p>PUT HANDLEBARS INSIDE HERE:</p>
-        <p>WILL CONTAIN CAT NAME, URL, LAST SEEN LOCATION AND DATE </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button type="button" class="btn1 updateCatToDb btn-primary btn-sm">Update</button>
     </div>
+    <div class="item">
+      <div class="fill">
+        <div class="container">
 
-<!-- CAT ONE -->
-<div class="item active"><!-- class of active since it's the first item -->
-    <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
-      <!-- <button type="button" class="btn addCat btn-primary btn-sm">Post A Lost Cat</button> -->
-      <div class="carousel-caption">
-        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-        <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-        <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
+        </div>
       </div>
+    </div>
+    <div class="item">
+      <div class="fill">
+        <div class="container">
+
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- CAT TWO -->
-    <div class="item">
-      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
-      <div class="carousel-caption">
-        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-        <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-        <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
-      </div>
-    </div>
-
-    <!-- CAT THREE -->
-    <div class="item">
-      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
-      <div class="carousel-caption">
-        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-        <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-        <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
-      </div>
-    </div>
-
-    <!-- CAT FOUR -->
-    <div class="item">
-      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
-      <div class="carousel-caption">
-        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-        <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-        <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
-      </div>
-    </div>
-  </div><!-- /.carousel-inner -->
-
-  <!--  Next and Previous controls below
-        href values must reference the id for this carousel -->
-    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-</div><!-- /.carousel -->
+  <div class="pull-center">
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+  </div>
+</div>
+</div>
 
   </body>
   </html>
