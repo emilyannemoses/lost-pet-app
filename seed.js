@@ -22,6 +22,13 @@ catList.push({
               dateLastSeen: 'March 8, 2014'
               // owner: 'Bob'
               });
+catList.push({
+              petName: 'Sammy',
+              picUrl: "https://s-media-cache-ak0.pinimg.com/736x/03/17/c1/0317c1aa041c68915b809752c3d2da10.jpg",
+              locationLastSeen: 'Reno, Nevada',
+              dateLastSeen: 'October 23, 2014'
+              // owner: 'Geraldine'
+              });
 
 // catList.forEach(function(cat){
 //   cat.owner = ownerList;
