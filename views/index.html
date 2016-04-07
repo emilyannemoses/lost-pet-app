@@ -18,7 +18,9 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
   </head>
+
   <body>
+    <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
     <div class = "container">
       <img class = "info" id="infoImage" src="images/info.svg">
 
@@ -36,6 +38,26 @@
     </div>
     </div>
 
+<!-- BEGIN CAROUSEL - NEEDS TO CONTAIN HANDLEBARS -->
+
+<!--CLOSE POPUP WINDOW BUTTON FOR ADD AND UPDATE BUTTONS-->
+<div class="col-md-6 col-md-offset-3 popupPost hidden">
+        <button name = "button" class = "close">Close</button>
+        <p>PUT HANDLEBARS INSIDE HERE:</p>
+        <p>WILL CONTAIN CAT NAME, URL, LAST SEEN LOCATION AND DATE </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button type="button" class="btn1 addCatToDb btn-primary btn-sm">Post</button>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3 popupUpdate hidden">
+        <button name = "button" class = "close">Close</button>
+        <p>PUT HANDLEBARS INSIDE HERE:</p>
+        <p>WILL CONTAIN CAT NAME, URL, LAST SEEN LOCATION AND DATE </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button type="button" class="btn1 updateCatToDb btn-primary btn-sm">Update</button>
+    </div> <!--END CLOSE BUTTON FOR POPUP WINDOWS-->
+
+
 <div class="container fill">
 <div id="this-carousel-id" class="carousel slide">
   <div class="carousel-inner">
@@ -43,12 +65,11 @@
       <div class="fill">
         <div class="container">
 
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="fill">
-        <div class="container">
+          <div class="carousel-caption">
+                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
+                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
+                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
+          </div>
 
         </div>
       </div>
@@ -57,16 +78,35 @@
       <div class="fill">
         <div class="container">
 
+          <div class="carousel-caption">
+                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
+                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
+                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
+    <div class="item">
+      <div class="fill">
+        <div class="container">
+
+          <div class="carousel-caption">
+                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
+                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
+                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
+          </div>
+
+        </div> <!-- class container -->
+      </div> <!-- class fill -->
+    </div> <!-- class item -->
+  </div> <!-- CLASS carousel-inner -->
   <div class="pull-center">
-	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
-  </div>
-</div>
-</div>
+	<a class="carousel-control left" href="#this-carousel-id" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#this-carousel-id" data-slide="next">›</a>
+</div> <!-- class pull-center -->
+</div> <!--id="this-carousel-id" class="carousel slide"-->
+</div> <!--class container fill-->
 
   </body>
   </html>

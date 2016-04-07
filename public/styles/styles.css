@@ -18,15 +18,21 @@ html,body{height:100%;}
 		padding-right: 0;
 	}
 }
+
+.carousel-caption{
+  z-index: 1;
+}
 .btn1 {
   text-align: center;
   margin-left: 10%;
 }
+
+/** SET IMAGE BACKGROUND FOR CAROUSEL AND MAKES IT BLURRY**/
 div.fill{
   background-image:url('https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg');
-  -webkit-filter: blur(7px);
+  /*-webkit-filter: blur(7px);
   filter: blur(7px);
-  z-index: -1;
+  z-index: -1;*/
 }
 .deleteCat{
   color: black;
