@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 // var Owner = require('./owner');
 
 var CatSchema = new Schema({
-  catName: String,
+  petName: String,
   picUrl: String,
   dateLastSeen: String,
   locationLastSeen: String

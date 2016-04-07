@@ -29,7 +29,7 @@
       <button name = "button" class="close">Close</button>
       <h2>
             <p>Welcome to the Pet Finder!</p>
-            <br><p>We are so sorry you've lost your pet.</p>
+            <p>We are so sorry you've lost your pet.</p>
             <p>Please post your pets photograph along with your email address by clicking the "Post A Lost Cat" button below.</p>
             <p>You may also update a pets location if you've seen him or her wandering your neighborhood!</p>
             <p>If you've found your pet, simply click "I Found This Cat" and it will delete your pets form from our site.</p>
@@ -63,6 +63,89 @@
   <div class="carousel-inner">
     <div class="active item">
       <div class="fill">
+
+        <!-- begin cat internal row -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 cat-art">
+                      <img src='{{imageUrl}}' alt="cat image">
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Pet Name:</h4>
+                          <span class = 'pet-name'>{{petName}} </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Where was the pet last seen?</h4>
+                          <span class=‘location-last-seen’>{{locationLastSeen}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>When was the pet last seen?</h4>
+                          <span class=‘date-last-seen’>{{dateLastSeen}}</span>
+                        </li>
+
+                        <!-- <li class="list-group-item">
+                        <h4 class="inline-header">Owner</h4>
+                        {{#each owner}}<span><p> {{petName}} {{ownerName}} </p></span>{{/each}}
+                        </li> -->
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of cat internal row -->
+
+        <div class="container">
+          <div class="carousel-caption">
+                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
+                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
+                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill">
+
+        <!-- begin cat internal row -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 cat-art">
+                      <img src='{{imageUrl}}' alt="cat image">
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Pet Name:</h4>
+                          <span class = 'pet-name'>{{petName}} </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Where was the pet last seen?</h4>
+                          <span class=‘location-last-seen’>{{locationLastSeen}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>When was the pet last seen?</h4>
+                          <span class=‘date-last-seen’>{{dateLastSeen}}</span>
+                        </li>
+
+                        <!-- <li class="list-group-item">
+                        <h4 class="inline-header">Owner</h4>
+                        {{#each owner}}<span><p> {{petName}} {{ownerName}} </p></span>{{/each}}
+                        </li> -->
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of cat internal row -->
+
         <div class="container">
 
           <div class="carousel-caption">
@@ -76,19 +159,42 @@
     </div>
     <div class="item">
       <div class="fill">
-        <div class="container">
 
-          <div class="carousel-caption">
-                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
-          </div>
+        <!-- begin cat internal row -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 cat-art">
+                      <img src='{{imageUrl}}' alt="cat image">
+                    </div>
 
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="fill">
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Pet Name:</h4>
+                          <span class = 'pet-name'>{{petName}} </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Where was the pet last seen?</h4>
+                          <span class=‘location-last-seen’>{{locationLastSeen}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>When was the pet last seen?</h4>
+                          <span class=‘date-last-seen’>{{dateLastSeen}}</span>
+                        </li>
+
+                        <!-- <li class="list-group-item">
+                        <h4 class="inline-header">Owner</h4>
+                        {{#each owner}}<span><p> {{petName}} {{ownerName}} </p></span>{{/each}}
+                        </li> -->
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of cat internal row -->
+
         <div class="container">
 
           <div class="carousel-caption">
