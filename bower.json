@@ -1,7 +1,7 @@
 {
   "name": "project-01",
   "description": "Pet Finder",
-  "main": "index.js",
+  "main": "server.js",
   "authors": [
     "eamoses <e.a.moses@gmail.com>"
   ],

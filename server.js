@@ -1,35 +1,54 @@
-// server.js
- // SERVER-SIDE JAVASCRIPT
- var express = require('express');
- var app = express();
+/// SERVER-SIDE JAVASCRIPT
+//require express in our app
+var express = require('express'),
+//require models
+    db = require('./models'),
+    //require body parser
+    bodyParser = require('body-parser');
+// generate a new express app and call it 'app'
+var app = express();
+// serve static files from public folder
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended:true}));
+// We'll serve jQuery and bootstrap from a local bower cache avoiding CDNs
+// We're placing these under /vendor to differentiate them from our own assets
+app.use('/vendor', express.static(__dirname + '/bower_components'));
+//require the controllers folder since those have all of the functions
+var controllers = require('./controllers');
 
- // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
- app.use(function(req, res, next) {
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
- });
+/**********
+ * ROUTES *
+ **********/
 
- app.get('/', function (req, res) {
-   res.send('Hello World!');
- });
 
- app.listen(process.env.PORT || 3000, function () {
-   console.log('Example app listening at http://localhost:3000/');
- });
+/*
+ * HTML Endpoints
+ */
+//required get function
+app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
- // server.js
- var albums = [
-   {
-     title: 'Cupid Deluxe',
-     artist: 'Blood Orange'
-   },
-   {
-     title: 'M3LL155X - EP',
-     artist: 'FKA twigs'
-   },
-   {
-     title: 'Fake History',
-     artist: 'letlive.'
-   }
- ];
+
+/*
+ * JSON API Endpoints
+ */
+//the index
+app.get('/api', controllers.api.index);
+//all of the albums
+// app.get('/api/cats', controllers.cats.index);
+//show songs on page, finished the show function
+// app.get('/api/cats/:catId', controllers.cats.show);
+//posts and creates - saves data once its posted
+// app.post('/api/cats', controllers.cats.create);
+//post and create songs
+// app.post('/api/cats/:catId/owners', controllers.owners.create);
+
+/**********
+ * SERVER *
+ **********/
+
+// listen on port 3000
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Express server is running on http://localhost:3000/');
+});
