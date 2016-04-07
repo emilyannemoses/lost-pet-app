@@ -11,5 +11,12 @@ $(function(){
       $(".close").on("click", function(){
         $("div.col-md-6.col-md-offset-3.popup").addClass("hidden"); //makes popup go hidden again so you can play the game
       });
+      //info button functionality
+      $(".info").on("click", function(){
+        $(".pop.hidden").removeClass("hidden");//opens popup to explain objective
+      });
+      $(".close").on("click", function(){
+        $(".pop").addClass("hidden"); //makes popup go hidden again so you can play the game
+      });
 
   });

@@ -19,45 +19,57 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
-<header class = "header">
-<div class = "buttonPanel">
-<div class="header">
-  <button type="button" class="btn addCat btn-primary btn-sm">Post A Lost Cat</button>
-  <!-- <button type="button" class="btn btn-secondary btn-sm">Search Lost Cats</button> -->
-  <div class="general">
-  <div class="col-md-6 col-md-offset-3 popup hidden">
-    <button name = "button" class = "close">Close</button>
-</div>
-</div>
-</div>
-</div>
-</header>
+    <div class = "container">
+      <img class = "info" id="infoImage" src="images/info.svg">
+
+    <div class="general">
+    <div class="pop hidden">
+      <button name = "button" class="close">Close</button>
+      <h2>
+            <p>Welcome to the Pet Finder!</p>
+            <br><p>We are so sorry you've lost your pet.</p>
+            <p>Please post your pets photograph along with your email address by clicking the "Post A Lost Cat" button below.</p>
+            <p>You may also update a pets location if you've seen him or her wandering your neighborhood!</p>
+            <p>If you've found your pet, simply click "I Found This Cat" and it will delete your pets form from our site.</p>
+      </h2>
+    </div>
+    </div>
+    </div>
     <!--  Carousel - consult the Twitter Bootstrap docs at
       http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
   <div class="carousel-inner">
-    <div class="item active"><!-- class of active since it's the first item -->
-      <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="" />
+      <!-- CLOSE POPUP WINDOW BUTTON -->
+      <div class="col-md-6 col-md-offset-3 popup hidden">
+        <button name = "button" class = "close">Close</button>
+    </div>
+<div class="item active"><!-- class of active since it's the first item -->
+    <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
+      <!-- <button type="button" class="btn addCat btn-primary btn-sm">Post A Lost Cat</button> -->
       <div class="carousel-caption">
+        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">Update Cat Location</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">I Found This Cat!</button>
       </div>
-    </div>
+  </div>
     <div class="item">
-      <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="" />
+      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
       <div class="carousel-caption">
+        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">Update Cat Location</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">I Found This Cat!</button>      </div>
     </div>
     <div class="item">
-      <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="" />
+      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
       <div class="carousel-caption">
+        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">Update Cat Location</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">I Found This Cat!</button>      </div>
     </div>
     <div class="item">
-      <img src="http://images6.fanpop.com/image/photos/33400000/Cute-Cats-cats-33440930-1280-800.jpg" alt="" />
+      <img id="catImage" src="https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg" alt="" />
       <div class="carousel-caption">
+        <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">Update Cat Location</button>
         <button type="button" class="btn1 addCat btn-primary btn-sm">I Found This Cat!</button>      </div>
     </div>
@@ -67,7 +79,6 @@
     <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
-
 
   </body>
   </html>
