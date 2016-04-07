@@ -65,7 +65,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 // all of the albums
 app.get('/api/cats', controllers.cats.index);
-//show songs on page, finished the show function
+//show cats on page, finished the show function
 // app.get('/api/cats/:catId', controllers.cats.show);
 //posts and creates - saves data once its posted
 // app.post('/api/cats', controllers.cats.create);
