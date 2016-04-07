@@ -19,28 +19,28 @@ var controllers = require('./controllers');
 /**********
  * DATA *
  **********/
- var catList =[];
-catList.push({
-               petName: 'Baxter',
-               picUrl: "http://www.pets4homes.co.uk/images/classifieds/2013/05/29/317446/large/pure-grey-cat-female-51a5dade1fd23.gif",
-               locationLastSeen: 'Oakland, California',
-               dateLastSeen: 'August 20, 2015'
-               // owner: 'Emily'
-             });
-catList.push({
-               petName: 'Sylvester',
-               picUrl: "https://scontent-iad3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11057791_10103140437025912_6419939779020771536_n.jpg?oh=9cca440ec94f523d9345127530b8b70d&oe=5776A186",
-               locationLastSeen: 'San Francisco, California',
-               dateLastSeen: 'March 8, 2014'
-               // owner: 'Bob'
-               });
-catList.push({
-                petName: 'Sammy',
-                picUrl: "https://s-media-cache-ak0.pinimg.com/736x/03/17/c1/0317c1aa041c68915b809752c3d2da10.jpg",
-                locationLastSeen: 'Reno, Nevada',
-                dateLastSeen: 'October 23, 2014'
-                // owner: 'Geraldine'
-                });
+//  var catList =[];
+// catList.push({
+//                petName: 'Baxter',
+//                pictureUrl: "http://www.pets4homes.co.uk/images/classifieds/2013/05/29/317446/large/pure-grey-cat-female-51a5dade1fd23.gif",
+//                locationLastSeen: 'Oakland, California',
+//                dateLastSeen: 'August 20, 2015'
+//                // owner: 'Emily'
+//              });
+// catList.push({
+//                petName: 'Sylvester',
+//                pictureUrl: "https://scontent-iad3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11057791_10103140437025912_6419939779020771536_n.jpg?oh=9cca440ec94f523d9345127530b8b70d&oe=5776A186",
+//                locationLastSeen: 'San Francisco, California',
+//                dateLastSeen: 'March 8, 2014'
+//                // owner: 'Bob'
+//                });
+// catList.push({
+//                 petName: 'Sammy',
+//                 pictureUrl: "https://s-media-cache-ak0.pinimg.com/736x/03/17/c1/0317c1aa041c68915b809752c3d2da10.jpg",
+//                 locationLastSeen: 'Reno, Nevada',
+//                 dateLastSeen: 'October 23, 2014'
+//                 // owner: 'Geraldine'
+//                 });
 
 
 
@@ -63,8 +63,8 @@ app.get('/', function homepage (req, res) {
  */
 //the index
 app.get('/api', controllers.api.index);
-//all of the albums
-// app.get('/api/cats', controllers.cats.index);
+// all of the albums
+app.get('/api/cats', controllers.cats.index);
 //show songs on page, finished the show function
 // app.get('/api/cats/:catId', controllers.cats.show);
 //posts and creates - saves data once its posted

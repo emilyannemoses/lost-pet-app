@@ -28,5 +28,21 @@ $(function(){
       $(".close").on("click", function(){
         $(".pop").addClass("hidden"); //makes popup go hidden again so you can play the game
       });
+      //GETTING ONE CAT ON THE PAGE
+      $.get('/api/cats').success(function (cats) {
+        cats.forEach(function(cat) {
+        renderCats(cat);
+        });
+      });
 
   });
+
+
+  // this function takes a single cat and renders it to the page
+  function renderCat(cat) {
+    console.log('rendering cat', cat);
+    var catHtml = $('#cat-template').html();
+    var catsTemplate = Handlebars.compile(catHtml);
+    var html = catsTemplate(cat);
+    $('#cats').prepend(html);
+  }
