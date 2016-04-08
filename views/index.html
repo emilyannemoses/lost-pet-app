@@ -9,12 +9,19 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- VENDOR SCRIPTS -->
+    <script src="/vendor/jQuery/dist/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/handlebars/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/app.js"></script>
 
   </head>
 
   <body>
     <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
-    <div class = "container">
+  <div class = "container">
       <img class = "info" id="infoImage" src="images/info.svg">
 
     <div class="general">
@@ -29,193 +36,39 @@
       </h2>
     </div>
     </div>
-    </div>
+  </div>
 
-<!-- BEGIN CAROUSEL - NEEDS TO CONTAIN HANDLEBARS -->
-
-<!-- BEGIN FORM SAMPLE -->
-
-    <section id='cat-form-add' class="container">
-      <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <form class="form-horizontal">
-          <fieldset>
-            <!-- Form Name -->
-            <div class="col-md-6 col-md-offset-3 popupPost hidden">
-            <legend>Add A Lost Pet</legend>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="petName">Pet Name</label>
-              <div class="col-md-4">
-              <input id="petName" name="petName" type="text" placeholder="Pet Name" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="pictureUrl">Image URL</label>
-              <div class="col-md-4">
-              <input id="pictureUrl textinput" name="pictureUrl" type="text" placeholder="Place URL Here" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="locationLastSeen">Where was the pet last seen?</label>
-              <div class="col-md-4">
-              <input id="locationLastSeen releaseDate" name="locationLastSeen releaseDate" type="text" placeholder="Street, City, State" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="dateLastSeen">When was the pet last seen?</label>
-              <div class="col-md-4">
-              <input id="dateLastSeen" name="dateLastSeen" type="text" placeholder="mm/dd/yyyy" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Button -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton">Save Pet!</label>
-              <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn1 addCatToDb btn-sm btn-primary">Submit</button>
-              </div>
-            </div>
-          </fieldset>
+<!-- BEGIN HANDLEBARS - CAROUSEL IS COMMENTED OUT FOR NOW -->
+<div class="container">
+    <h1 class="text-center">Lost Pets App</h1>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form class="form-inline" id="newCatForm">
+          <div class="form-group">
+            <label for="title">Pet Name</label>
+            <input type="text" class="form-control" name="petName" placeholder="Pet Name">
+          </div>
+          <div class="form-group">
+            <label for="title">Pet Picture</label>
+            <input type="text" class="form-control" name="pictureUrl" placeholder="Picture Url">
+          </div>
+          <button type="submit" class="btn btn-default">Create cat</button>
         </form>
-      </div>
-      </div>
-    </div>
-    </section>
-
-     <!--   END FORM SAMPLE -->
-
-     <!-- BEGIN FORM SAMPLE -->
-
-         <section id='cat-form' class="container">
-           <div class="row">
-           <div class="col-md-10 col-md-offset-1">
-             <form class="form-horizontal">
-               <fieldset>
-                 <!-- Form Name -->
-                 <div class="col-md-6 col-md-offset-3 popupUpdate hidden">
-                 <legend>Update The Lost Pets Information</legend>
-                 <!-- Text input-->
-                 <div class="form-group">
-                   <label class="col-md-4 control-label" for="petName">Pet Name</label>
-                   <div class="col-md-4">
-                   <input id="petName" name="petName" type="text" placeholder="Pet Name" class="form-control input-md">
-                   </div>
-                 </div>
-                 <!-- Text input-->
-                 <div class="form-group">
-                   <label class="col-md-4 control-label" for="pictureUrl">Image URL</label>
-                   <div class="col-md-4">
-                   <input id="pictureUrl textinput" name="pictureUrl" type="text" placeholder="Place URL Here" class="form-control input-md">
-                   </div>
-                 </div>
-                 <!-- Text input-->
-                 <div class="form-group">
-                   <label class="col-md-4 control-label" for="locationLastSeen">Where was the pet last seen?</label>
-                   <div class="col-md-4">
-                   <input id="locationLastSeen releaseDate" name="locationLastSeen releaseDate" type="text" placeholder="Street, City, State" class="form-control input-md">
-                   </div>
-                 </div>
-                 <!-- Text input-->
-                 <div class="form-group">
-                   <label class="col-md-4 control-label" for="dateLastSeen">When was the pet last seen?</label>
-                   <div class="col-md-4">
-                   <input id="dateLastSeen" name="dateLastSeen" type="text" placeholder="mm/dd/yyyy" class="form-control input-md">
-                   </div>
-                 </div>
-                 <!-- Button -->
-                 <div class="form-group">
-                   <label class="col-md-4 control-label" for="singlebutton">Update Pet!</label>
-                   <div class="col-md-4">
-                     <button id="singlebutton" name="singlebutton" class="btn1 updateCatToDb btn-sm btn-primary">Submit</button>
-                   </div>
-                 </div>
-               </fieldset>
-             </form>
-           </div>
-           </div>
-         </div>
-         </section>
-
-          <!--   END FORM SAMPLE -->
-<div class="container fill">
-<div id='cats'>
-<script id="cat-template" type="text/x-handlebars-template">
-  <!-- begin cat internal row -->
-    <div class="active item">
-      <div id="this-carousel-id" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="fill">
-
-          <!-- one album -->
-          <div class="row cat" data-cat-id = "{{_id}}">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="panel panel-default">
-                <div class="panel-body">
-
-
-                    <div class="col-md-9 col-xs-12">
-                      <ul class="list-group">
-
-                        <div class='row'>
-                          <div class="col-md-3 col-xs-12 cat-art">
-                            <img src='{{pictureUrl}}' alt="cat image">
-                          </div>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Pet Name:</h4>
-                          <span class = 'pet-name'>{{petName}} </span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Where was the pet last seen?</h4>
-                          <span class=‘location-last-seen’>{{locationLastSeen}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>When was the pet last seen?</h4>
-                          <span class=‘date-last-seen’>{{dateLastSeen}}</span>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div><!--panel-body-->
-            </div>
-          </div>
-        </div>
-        <!-- end one album -->
-    </div> <!--last div-->
-    </script>
-                  <!-- end of cat internal row -->
-        <div class="container">
-          <div class="carousel-caption">
-                  <button type="button" class="btn1 addCat btn-primary btn-sm">Post A Lost Cat</button>
-                  <button type="button" class="btn1 updateCat btn-primary btn-sm">Update Cat Location</button>
-                  <button type="button" class="btn1 deleteCat btn-primary btn-sm">I Found This Cat!</button>
-          </div>
+        <div id='catTarget'>
+          <!-- handlebars template -->
+          <script id="cats-template" type="text/x-handlebars-template">
+            {{#each cats}}
+            <hr>
+            <p>
+              <b>{{petName}}</b>
+              <span><img src='{{pictureUrl}}' alt="cat image"></span>
+              <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+            </p>
+            {{/each}}
+          </script>
         </div>
       </div>
     </div>
-
-  <div class="pull-center">
-	<a class="carousel-control left" href="#this-carousel-id" data-slide="prev">‹</a>
-	<a class="carousel-control right" href="#this-carousel-id" data-slide="next">›</a>
-</div>
-</div> <!-- class pull-center -->
-</div> <!--id="this-carousel-id" class="carousel slide"-->
-</div> <!--class container fill-->
-
-
-
-<!-- VENDOR SCRIPTS -->
-<script src="/vendor/jQuery/dist/jquery.min.js"></script>
-<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/vendor/handlebars/handlebars.min.js"></script>
-
-<!-- APPLICATION SCRIPTS -->
-<script src="scripts/app.js"></script>
-  </body>
-  </html>
+  </div>
+</body>
+</html>
