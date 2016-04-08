@@ -11,25 +11,20 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  // console.log('body', req.body);
-  //
-  // // split at comma and remove and trailing space
-  // var genres = req.body.genres.split(',').map(function(item) { return item.trim(); } );
-  // req.body.genres = genres;
-  //
-  // db.Album.create(req.body, function(err, album) {
-  //   if (err) { console.log('error', err); }
-  //   console.log(album);
-  //   res.json(album);
-  // });
+  console.log('body', req.body);
+  db.Cat.create(req.body, function(err, cat) {
+    if (err) { console.log('error', err); }
+    console.log(cat);
+    res.json(cat);
+  });
 }
 
 function show(req, res) {
-  // db.Album.findById(req.params.albumId, function(err, foundAlbum) {
-  //   if(err) { console.log('albumsController.show error', err); }
-  //   console.log('albumsController.show responding with', foundAlbum);
-  //   res.json(foundAlbum);
-  // });
+  db.Cat.findById(req.params.catId, function(err, foundCat) {
+    if(err) { console.log('catsController.show error', err); }
+    console.log('catsController.show responding with', foundCat);
+    res.json(foundCat);
+  });
 }
 
 function destroy(req, res) {
