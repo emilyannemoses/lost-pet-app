@@ -22,7 +22,7 @@ $(function(){
         $(".pop.hidden").removeClass("hidden");//opens popup
       });
       $(".close").on("click", function(){
-        $(".pop").addClass("hidden"); //makes popup go hidden 
+        $(".pop").addClass("hidden"); //makes popup go hidden
       });
       //GETTING ONE CAT ON THE PAGE
       $.get('/api/cats').success(function (cats) {
@@ -54,6 +54,35 @@ $(function(){
     $('#cats').prepend(html);
     carouselArray.push(html);
   }
+
+  function fetchAndReRenderCatWithId(catId) {
+  $.get('/api/cats/' + catId, function(data) {
+    // remove the current instance of the album from the page
+    $('div[data-cat-id=' + catId + ']').remove();
+    // re-render it with the new album data (including songs)
+    renderCat(data);
+  });
+}
+
+$.ajax({
+   method: 'PUT',
+   url: '/api/cats/' + catId,
+   data: data,
+   success: handleCatUpdatedResponse
+ });
+
+function handleCatUpdatedResponse(data) {
+ console.log('response to update', data);
+
+ var catId = data._id;
+ // scratch this album from the page
+ $('[data-cat-id=' + catId + ']').remove();
+ // and then re-draw it with the updates ;-)
+ renderCat(data);
+
+ // BONUS: scroll the change into view ;-)
+ $('[data-cat-id=' + catId + ']')[0].scrollIntoView();
+}
 
   function handleDeleteCatClick(e) {
   var catId = $(this).parents('.cat').data('cat-id');

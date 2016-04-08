@@ -42,6 +42,8 @@ app.get('/api/cats/:catId', controllers.cats.show);
 app.post('/api/cats', controllers.cats.create);
 //delete cat postings - class is deleteCat
 app.delete('/api/cats/:catId', controllers.cats.destroy);
+//UPDATE
+app.put('/api/cats/:catId', controllers.cats.update);
 //create/save owner
 // app.post('/api/cats/:catId/owners', controllers.owners.create);
 
