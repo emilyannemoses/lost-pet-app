@@ -27,7 +27,14 @@ $(document).ready(function(){
       success: newCatSuccess,
       error: newCatError
     });
+
+  $.ajax({
+    method: 'PUT',
+    url: '/api/cats' + catId,
+    success: handleEditCatSuccess,
+    error: handleEditCatError
   });
+});
 
   $catsList.on('click', '.deleteBtn', function() {
     console.log('clicked delete button to', '/api/cats/'+$(this).attr('data-id'));

@@ -39,11 +39,11 @@ function destroy(req, res) {
 function update(req, res) {
   console.log('updating with data', req.body);
   db.Cat.findById(req.params.catId, function(err, foundCat) {
-    if(err) { console.log('catsController.update error', err); }
-    foundCat.PetName = req.body.petName;
+    if(err) { console.log('catController.update error', err); }
+    foundCat.petName = req.body.petName;
     foundCat.pictureUrl = req.body.pictureUrl;
-    foundCat.locationLastSeen = req.body.locationLastSeen;
     foundCat.dateLastSeen = req.body.dateLastSeen;
+    foundCat.locationLastSeen = req.body.locationLastSeen;
     foundCat.save(function(err, savedCat) {
       if(err) { console.log('saving altered cat failed'); }
       res.json(savedCat);
