@@ -35,12 +35,17 @@
 		padding: 5px;
 		margin-top: 5px;
 }
-.pop.hidden{
+h2{
+  text-align: center;
+  color: black;
+  font-family: arial;
+}
+.pop{
   position: fixed;
   background-color: white;
-  font-family: times;
   z-index: 3;
 }
+
 /*INFO BUTTON STYLES*/
 #infoImage{
   position: fixed;
