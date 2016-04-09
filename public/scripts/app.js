@@ -1,9 +1,24 @@
-console.log("Sanity Check: JS is working!");
-var template;
-var $catsList;
-var allCats = [];
+/* CLIENT-SIDE JS
+ */
+$(document).ready(function() {
+  console.log('app.js loaded!');
+  $.get('/api/cats').success(function (cats) {
+    cats.forEach(function(cat) {
+      renderCat(cat);
+    });
+  });
 
-$(document).ready(function(){
+  $('#newCatForm').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData', formData);
+    $.post('/api/cats', formData, function(cat) {
+      console.log('cat after POST', cat);
+      renderCat(cat);  //render the server's response
+    });
+    $(this).trigger("reset");
+  });
+  //INFO BUTTON POPUP
   $('#infoImage').on('click', function(){
     $('.pop.hidden').removeClass('hidden');
   });
@@ -11,178 +26,142 @@ $(document).ready(function(){
     $('.pop').addClass('hidden');
   });
 
-  $catsList = $('#catTarget');
+  //get and handle click on the add owner email button
+  $('#cats').on('click', '.owner-email', handleAddOwnerClick);
 
-  // compile handlebars template
-  var source = $('#cats-template').html();
-  template = Handlebars.compile(source);
 
-  $.ajax({
-    method: 'GET',
-    url: '/api/cats',
-    success: handleSuccess,
-    error: handleError
-  });
-  
-
-  $('#newCatForm').on('submit', function(e) {
-    e.preventDefault();
-    $.ajax({
-      method: 'POST',
-      url: '/api/cats',
-      data: $(this).serialize(),
-      success: newCatSuccess,
-      error: newCatError
-    });
+  $('#saveOwner').on('click', handleNewOwnerSubmit); //MUST BE SAVE OWNER FOR THE BUTTON TO HAVE THE ID OF THE CAT
+  $('#cats').on('click', '.delete-cat', handleDeleteCatClick);
+  $('#cats').on('click', '.edit-cat', handleCatEditClick);
+  $('#cats').on('click', '.save-cat', handleSaveChangesClick);
 });
 
-  $catsList.on('click', '.deleteBtn', function() {
-    console.log('clicked delete button to', '/api/cats/'+$(this).attr('data-id'));
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/cats/'+$(this).attr('data-id'),
-      success: deleteCatSuccess,
-      error: deleteCatError
-    });
-  });
-  //calls upon cat edit click function below when edit button is clicked
-  $('#catTarget').on('click', '.edit-cat', handleCatEditClick);
-  //calls upon save changes function below when save button is clicked
-  $('#catTarget').on('click', '.btn.btn-success.save-cat', handleSavedChangesClick);
-  // catch and handle the click on an add song button
-  // $('#catTarget').on('click', '.email-owner', handleAddOwnerClick);
-  // save song modal save button
-  // $('#saveSong').on('click', handleNewSongSubmit);
-
-});
-
-// helper function to render all posts to view
-// note: we empty and re-render the collection each time our post data changes
-function render () {
-  // empty existing posts from view
-  $catsList.empty();
-
-  // pass `allBooks` into the template function
-  var catsHtml = template({ cats: allCats });
-
-  // append html to the view
-  $catsList.append(catsHtml);
-}
-
-function handleSuccess(json) {
-  allCats = json;
-  render();
-}
-
-function handleError(e) {
-  console.log('uh oh');
-  $('#catTarget').text('Failed to load cats, is the server working?');
-}
-
-function newCatSuccess(json) {
-  $('#newCatForm input').val('');
-  allCats.push(json);
-  render();
-}
-
-function newCatError() {
-  console.log('newbook error!');
-}
-
-function fetchAndReRenderCatWithId(catId){
-  $.get('/api/cats/' + catId,
-function(data){
-  $('div[data-id' + catId + ']').remove();
-  renderCat(data);
-});
-}
-
-// when the add owner button is clicked, display the modal
-// function handleAddOwnerClick(e) {
-//   console.log('add-owner clicked!');
-//   var currentCatId = $(this).closest('.cat').data('cat-id');
-//   console.log('id',currentCatId);
-//   $('#ownerModal').data('cat-id', currentCatId);
-//   $('#ownerModal').modal();  // display the modal!
-// }
-
-function deleteCatSuccess(json) {
-  var cat = json;
-  console.log(json);
-  var catId = cat._id;
-  console.log('delete cat', catId);
-  for(var index = 0; index < allCats.length; index++) {
-    if(allCats[index]._id === catId) {
-      allCats.splice(index, 1);
-      break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
-    }
-  }
-  render();
-}
-
-function deleteCatError() {
-  console.log('delete cat error!');
-}
-
-function handleCatEditClick(e){
+// when the edit button for a cat is clicked
+function handleCatEditClick(e) {
   var $catRow = $(this).closest('.cat');
   var catId = $catRow.data('cat-id');
   console.log('edit cat', catId);
-  //show save changes button
-  $catRow.find('.save-cat').toggleClass('hidden');
-  //hide the edit button
-  $catRow.find('.edit-cat').toggleClass('hidden');
-  //get cats name and replace with an input element
-  var pictureUrl = $catRow.find('span.pictureUrl').text();
-  $catRow.find('span.pictureUrl').html('<input class="edit-cat-pictureUrl" value="URL of Pet Picture"' + pictureUrl + '"></input>');
 
+  // show the save changes button
+  $catRow.find('.save-cat').toggleClass('hidden');
+  // hide the edit button
+  $catRow.find('.edit-cat').toggleClass('hidden');
+
+
+  // get the cat name and replace its field with an input element
   var petName = $catRow.find('span.petName').text();
-  $catRow.find('span.petName').html('<input class="edit-cat-petName" value="Pet Name"' + petName + '"></input>');
+  $catRow.find('span.petName').html('<input class="edit-petName" value="' + petName + '"></input>');
+
+  var pictureUrl = $catRow.find('span.pictureUrl').text();
+  $catRow.find('span.pictureUrl').html('<input class="edit-pictureUrl" value="' + pictureUrl + '"></input>');
 
   var locationLastSeen = $catRow.find('span.locationLastSeen').text();
-  $catRow.find('span.locationLastSeen').html('<input class="edit-cat-locationLastSeen" value="Location Last Seen"' + locationLastSeen + '"></input>');
+  $catRow.find('span.locationLastSeen').html('<input class="edit-locationLastSeen" value="' + locationLastSeen + '"></input>');
 
   var dateLastSeen = $catRow.find('span.dateLastSeen').text();
-  $catRow.find('span.dateLastSeen').html('<input class="edit-cat-dateLastSeen" value="Date Last Seen"' + dateLastSeen + '"></input>');
+  $catRow.find('span.dateLastSeen').html('<input class="edit-dateLastSeen" value="' + dateLastSeen + '"></input>');
 }
 
-function handleSavedChangesClick(e){
-  var catId = $(this).closest('.cat').data('cat-id');
-  var $catRow = $('[data-id' + catId + ']');
-  console.log(catId);
+// after editing a cat, when the save changes button is clicked
+function handleSaveChangesClick(e) {
+  var catId = $(this).parents('.cat').data('cat-id'); // $(this).closest would have worked fine too
+  var $catRow = $('[data-cat-id=' + catId + ']');
+
   var data = {
-    petName: $catRow.find('#petName').val(),
-    pictureUrl: $catRow.find('#pictureUrl').val(),
-    locationLastSeen: $catRow.find('#locationLastSeen').val(),
-    dateLastSeen: $catRow.find('#dateLastSeen').val()
+    petName: $catRow.find('.edit-petName').val(),
+    pictureUrl: $catRow.find('.edit-pictureUrl').val(),
+    locationLastSeen: $catRow.find('.edit-locationLastSeen').val(),
+    dateLastSeen: $catRow.find('.edit-dateLastSeen').val()
   };
   console.log('PUTing data for cat', catId, 'with data', data);
 
   $.ajax({
-      method: 'PUT',
-      url: '/api/cats/' + catId,
-      data: data,
-      success: handleCatUpdatedResponse
-    });
-
+    method: 'PUT',
+    url: '/api/cats/' + catId,
+    data: data,
+    success: handleCatUpdatedResponse
+  });
 }
 
-  // $.ajax({
-  //   method: 'POST',
-  //   url: '/api/cats/' + catId,
-  //   headers: {"X-HTTP-Method-Override": "PUT"},
-  //   data: data,
-  //   success: function(data){
-  //     console.log('things happened');
-  //   }
-  // });
+function handleCatUpdatedResponse(data) {
+  console.log('response to update', data);
 
-  function handleCatUpdatedResponse(data){
-    console.log('response to update', data);
-    var catId = data._id;
-    $('[data-id' + catId + ']').remove();
+  var catId = data._id;
+  // scratch this album from the page
+  $('[data-cat-id=' + catId + ']').remove();
+  // and then re-draw it with the updates ;-)
+  renderCat(data);
+
+  // BONUS: scroll the change into view ;-)
+  $('[data-cat-id=' + catId + ']')[0].scrollIntoView();
+}
+
+// when a delete button for a cat is clicked
+function handleDeleteCatClick(e) {
+  var catId = $(this).parents('.cat').data('cat-id');
+  console.log('someone wants to delete cat id=' + catId );
+  $.ajax({
+    url: '/api/cats/' + catId,
+    method: 'DELETE',
+    success: handleDeleteCatSuccess
+  });
+}
+
+// callback after DELETE /api/cats/:id
+function handleDeleteCatSuccess(data) {
+  var deletedCatId = data._id;
+  console.log('removing the following cat from the page:', deletedCatId);
+  $('div[data-cat-id=' + deletedCatId + ']').remove();
+}
+
+function fetchAndReRenderCatWithId(catId) {
+  $.get('/api/cats/' + catId, function(data) {
+    $('div[data-cat-id=' + catId + ']').remove();
     renderCat(data);
+  });
+}
 
-    $('[data-id' + catId + ']');
-    [0].scrollIntoView();
-  }
+// this function takes a single cat and renders it to the page
+function renderCat(cat) {
+  console.log('rendering cat', cat);
+  var catHtml = $('#cat-template').html();
+  var catsTemplate = Handlebars.compile(catHtml);
+  var html = catsTemplate(cat);
+  $('#cats').prepend(html);
+}
+
+// when the add owner email button is clicked, display the modal
+function handleAddOwnerClick(e) {
+  console.log('owne email clicked!');
+  var currentCatId = $(this).closest('.cat').data('cat-id');
+  console.log('id',currentCatId);
+  $('#ownerModal').data('cat-id', currentCatId);
+  $('#ownerModal').modal();  // display the modal!
+}
+
+// when the cat modal submit button is clicked:
+function handleNewOwnerSubmit(e) {
+  e.preventDefault();
+  var $modal = $('#ownerModal');
+  var $ownerEmailField = $modal.find('#ownerEmail');
+  // get data from modal fields
+  var dataToPost = {
+      email: $ownerEmailField.val()
+    };
+  var catId = $modal.data('catId');
+  console.log('retrieved ownerEmail:', ownerEmail);
+  // POST to SERVER
+  var ownerPostToServerUrl = '/api/cats/'+ catId + '/owners';
+  $.post(ownerPostToServerUrl, dataToPost, function(data) {
+    console.log('received data from post to /owners:', data);
+    // clear form
+    $ownerEmailField.val('');
+    // close modal
+    $modal.modal('hide');
+    // update the correct cat to show the new cat
+    // update the correct album to show the new song
+    fetchAndReRenderCatWithId(catId);
+  }).error(function(err) {
+    console.log('post to /api/cats/:catId/owners resulted in error', err);
+  });
+}
