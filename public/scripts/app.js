@@ -132,10 +132,10 @@ function handleSavedChangesClick(e){
   var $catRow = $('[data-id' + catId + ']');
 console.log(catId);
   var data = {
-    petName: $catRow.find('.edit-cat-petName').val(),
-    pictureUrl: $catRow.find('.edit-cat-pictureUrl').val(),
-    locationLastSeen: $catRow.find('.edit-cat-locationLastSeen').val(),
-    dateLastSeen: $catRow.find('.edit-cat-dateLastSeen').val()
+    petName: $catRow.find('#petName').val(),
+    pictureUrl: $catRow.find('#pictureUrl').val(),
+    locationLastSeen: $catRow.find('#locationLastSeen').val(),
+    dateLastSeen: $catRow.find('#dateLastSeen').val()
   };
   console.log('PUTing data for cat', catId, 'with data', data);
 
