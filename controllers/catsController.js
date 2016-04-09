@@ -49,7 +49,6 @@ function update(req, res) {
       res.json(savedCat);
     });
   });
-
 }
 
 

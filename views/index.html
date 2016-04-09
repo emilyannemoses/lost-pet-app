@@ -68,16 +68,20 @@
         <div id='catTarget'>
           <!-- handlebars template -->
           <script id="cats-template" type="text/x-handlebars-template">
+            <div class="row cat" data-cat-id="{{_id}}">
             {{#each cats}}
             <hr>
             <p>
-              <span><img src='{{pictureUrl}}' alt="cat image"></span>
-              <b>{{petName}}</b>
-              <b>{{locationLastSeen}}</b>
-              <b>{{dateLastSeen}}</b>
+              <span class = "pictureUrl"><img src='{{pictureUrl}}' alt="cat image"></span>
+              <span class = "petName"><b>{{petName}}</b></span>
+              <span class = "locationLastSeen"><b>{{locationLastSeen}}</b></span>
+              <span class = "dateLastSeen"><b>{{dateLastSeen}}</b></span>
               <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+              <button class='btn btn-info edit-cat' data-id={{_id}}>Edit Cat Info</button>
+              <button class='btn btn-success save-cat hidden'>Save Changes</button>
             </p>
             {{/each}}
+          </div>
           </script>
         </div>
       </div>
