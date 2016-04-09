@@ -135,7 +135,7 @@
 
                         <li class="list-group-item">
                           <h4 class="inline-header">Owner</h4>
-                          <span>&ndash; {{#each owners}} {{email}} &ndash;  {{/each}}</span>
+                          <span> {{#each owner}}{{email}}{{/each}}</span>
                         </li>
 
                       </ul>
@@ -169,7 +169,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
               <h4 class="modal-title">Owner Email</h4>
             </div>
             <div class="modal-body">
@@ -186,11 +186,27 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="saveOwner">Save changes</button>
+                <button type="button" class="btn btn-primary" id="saveOwner">Save Email</button>
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
 
 </body>
+
+<!-- template for editing / deleting a owner -->
+   <script id='owner-edit-template' type='text/x-handlebars-template'>
+     {{#each owners}}
+     <!-- confused by ../albumId ?  See:
+     http://stackoverflow.com/questions/12297959/access-properties-of-the-parent-with-a-handlebars-each-loop#12297980
+     -->
+     <form class="form-inline" id="{{_id}}" data-cat-id="{{../catId}}" >
+       <div class="form-group">
+         <input type="text" class="form-control owner-email" value="{{email}}">
+       </div>
+     </form>
+     {{/each}}
+   </script>
+
+
 </html>

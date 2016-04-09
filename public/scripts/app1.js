@@ -107,6 +107,13 @@ function handleDeleteCatSuccess(data) {
   $('div[data-cat-id=' + deletedCatId + ']').remove();
 }
 
+function fetchAndReRenderCatWithId(catId) {
+  $.get('/api/cats/' + catId, function(data) {
+    $('div[data-cat-id=' + catId + ']').remove();
+    renderCat(data);
+  });
+}
+
 // this function takes a single cat and renders it to the page
 function renderCat(cat) {
   console.log('rendering cat', cat);
@@ -121,7 +128,7 @@ function handleAddOwnerClick(e) {
   console.log('owne email clicked!');
   var currentCatId = $(this).closest('.cat').data('cat-id');
   console.log('id',currentCatId);
-  $('#ownerModal').data('car-id', currentCatId);
+  $('#ownerModal').data('cat-id', currentCatId);
   $('#ownerModal').modal();  // display the modal!
 }
 
@@ -131,23 +138,22 @@ function handleNewOwnerSubmit(e) {
   var $modal = $('#ownerModal');
   var $ownerEmailField = $modal.find('#ownerEmail');
   // get data from modal fields
-  var dataToPost = [{email: $ownerEmailField.val()}];
+  var dataToPost = {
+      email: $ownerEmailField.val()
+    };
   var catId = $modal.data('catId');
   console.log('retrieved ownerEmail:', ownerEmail);
   // POST to SERVER
-  $.post('/api/cats/'+ catId + '/owners', dataToPost, function(data) {
+  var ownerPostToServerUrl = '/api/cats/'+ catId + '/owners';
+  $.post(ownerPostToServerUrl, dataToPost, function(data) {
     console.log('received data from post to /owners:', data);
     // clear form
     $ownerEmailField.val('');
     // close modal
     $modal.modal('hide');
     // update the correct cat to show the new cat
-    $.get('/api/cats/' + catId, function(data) {
-      // remove the current instance of the cat from the page
-      $('[data-cat-id=' + catId + ']').remove();
-      // re-render it with the new cat data (including cats)
-      renderCat(data);
-    });
+    // update the correct album to show the new song
+    fetchAndReRenderCatWithId(catId);
   }).error(function(err) {
     console.log('post to /api/cats/:catId/owners resulted in error', err);
   });
