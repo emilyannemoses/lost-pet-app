@@ -12,8 +12,7 @@
 /*}*/
 
 .jumbotron {
-  background-image: url(https://www.worldsbestcatlitter.com/clearing-the-air/wp-content/uploads/2015/07/blog-generic-image_e-858x429.jpg
-);
+  background-image: url(/images/cat.png);
   background-size: cover;
   background-repeat: no-repeat;
   color: black;
@@ -36,16 +35,19 @@
 		padding: 5px;
 		margin-top: 5px;
 }
-
+.pop.hidden{
+  position: fixed;
+  background-color: white;
+  font-family: times;
+  z-index: 3;
+}
 /*INFO BUTTON STYLES*/
 #infoImage{
-  position: absolute;
+  position: fixed;
   top:0;
   bottom:0;
   left:0;
   right:0;
-  margin-bottom: 40%;
-  margin-left: 2%;
   width: 5%;
   height: 5%;
   z-index: 2;

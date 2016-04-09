@@ -45,7 +45,7 @@ app.delete('/api/cats/:catId', controllers.cats.destroy);
 //UPDATE
 app.put('/api/cats/:catId', controllers.cats.update);
 //create/save owner
-// app.post('/api/cats/:catId/owners', controllers.owners.create);
+app.post('/api/cats/:catId/owners', controllers.owners.create);
 
 /**********
  * SERVER *

@@ -4,6 +4,15 @@ var $catsList;
 var allCats = [];
 
 $(document).ready(function(){
+  $('.email-owner.btn.btn-primary').on('click', function(){
+    $('.pop1.hidden').removeClass('hidden');
+  });
+$('#infoImage').on('click', function(){
+  $('.pop.hidden').removeClass('hidden');
+});
+$('.close').on('click', function(){
+  $('.pop').addClass('hidden');
+});
 
   $catsList = $('#catTarget');
 
@@ -38,11 +47,10 @@ $(document).ready(function(){
       error: deleteCatError
     });
   });
-
   //calls upon cat edit click function below when edit button is clicked
   $('#catTarget').on('click', '.edit-cat', handleCatEditClick);
   //calls upon save changes function below when save button is clicked
-  $('#catTarget').on('click', '.save-cat', handleSavedChangesClick);
+  $('#catTarget').on('click', '.btn.btn-success.save-cat', handleSavedChangesClick);
 
 });
 
@@ -66,7 +74,7 @@ function handleSuccess(json) {
 
 function handleError(e) {
   console.log('uh oh');
-  $('#catkTarget').text('Failed to load cats, is the server working?');
+  $('#catTarget').text('Failed to load cats, is the server working?');
 }
 
 function newCatSuccess(json) {
@@ -130,7 +138,7 @@ function handleCatEditClick(e){
 function handleSavedChangesClick(e){
   var catId = $(this).closest('.cat').data('cat-id');
   var $catRow = $('[data-id' + catId + ']');
-console.log(catId);
+  console.log(catId);
   var data = {
     petName: $catRow.find('#petName').val(),
     pictureUrl: $catRow.find('#pictureUrl').val(),
@@ -140,22 +148,30 @@ console.log(catId);
   console.log('PUTing data for cat', catId, 'with data', data);
 
   $.ajax({
-    method: 'POST',
-    url: '/api/cats/' + catId,
-    headers: {"X-HTTP-Method-Override": "PUT"},
-    data: data,
-    success: function(data){
-      console.log('things happened');
-    }
-  });
+      method: 'PUT',
+      url: '/api/cats/' + catId,
+      data: data,
+      success: handleCatUpdatedResponse
+    });
+
 }
 
-  // function handleCatUpdatedResponse(data){
-  //   console.log('response to update', data);
-  //   var catId = data._id;
-  //   $('[data-id' + catId + ']').remove();
-  //   renderCat(data);
-  //
-  //   $('[data-id' + catId + ']');
-  //   [0].scrollIntoView();
-  // }
+  // $.ajax({
+  //   method: 'POST',
+  //   url: '/api/cats/' + catId,
+  //   headers: {"X-HTTP-Method-Override": "PUT"},
+  //   data: data,
+  //   success: function(data){
+  //     console.log('things happened');
+  //   }
+  // });
+
+  function handleCatUpdatedResponse(data){
+    console.log('response to update', data);
+    var catId = data._id;
+    $('[data-id' + catId + ']').remove();
+    renderCat(data);
+
+    $('[data-id' + catId + ']');
+    [0].scrollIntoView();
+  }
