@@ -5,5 +5,7 @@ mongoose.connect("mongodb://localhost/project-01");
 //                       process.env.MONGOHQ_URL ||
 //                       "mongodb://localhost/project-01" );
 
-module.exports.Cat = require('./cat.js');
-module.exports.Owner = require('./owner.js');
+var Cat = require('./cat');
+
+module.exports.Cat = Cat;
+module.exports.Owner = require('./owner');

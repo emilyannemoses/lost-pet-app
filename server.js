@@ -33,19 +33,23 @@ app.get('/', function homepage (req, res) {
  * JSON API Endpoints
  */
 //the index
-app.get('/api', controllers.api.index);
-// all of the albums
-app.get('/api/cats', controllers.cats.index);
-// show cats on page, finished the show function
-app.get('/api/cats/:catId', controllers.cats.show);
-// posts and creates - saves data once its posted
-app.post('/api/cats', controllers.cats.create);
-//delete cat postings - class is deleteCat
-app.delete('/api/cats/:catId', controllers.cats.destroy);
-//UPDATE
-app.put('/api/cats/:catId', controllers.cats.update);
-//create/save owner
-app.post('/api/cats/:catId/owners', controllers.owners.create);
+ app.get('/api', controllers.api.index);
+ // all of the cats
+ app.get('/api/cats', controllers.cats.index);
+ // show cats on page, finished the show function
+ app.get('/api/cats/:catId', controllers.cats.show);
+ // posts and creates - saves data once its posted
+ app.post('/api/cats', controllers.cats.create);
+ //delete cat postings - class is
+ app.delete('/api/cats/:catId', controllers.cats.destroy);
+ //update cat
+ app.put('/api/cats/:catId', controllers.cats.update);
+ //create/save owner
+ app.get('/api/cats/:catId/owners', controllers.catsOwners.index);
+ //save owner
+ app.post('/api/cats/:catId/owners', controllers.catsOwners.create);
+ //update owner
+ app.put('/api/cats/:catId/owners/:ownerId', controllers.catsOwners.update);
 
 /**********
  * SERVER *

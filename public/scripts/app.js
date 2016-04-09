@@ -4,15 +4,12 @@ var $catsList;
 var allCats = [];
 
 $(document).ready(function(){
-  $('.email-owner.btn.btn-primary').on('click', function(){
-    $('.pop1.hidden').removeClass('hidden');
+  $('#infoImage').on('click', function(){
+    $('.pop.hidden').removeClass('hidden');
   });
-$('#infoImage').on('click', function(){
-  $('.pop.hidden').removeClass('hidden');
-});
-$('.close').on('click', function(){
-  $('.pop').addClass('hidden');
-});
+  $('.close').on('click', function(){
+    $('.pop').addClass('hidden');
+  });
 
   $catsList = $('#catTarget');
 
@@ -26,6 +23,7 @@ $('.close').on('click', function(){
     success: handleSuccess,
     error: handleError
   });
+  
 
   $('#newCatForm').on('submit', function(e) {
     e.preventDefault();
@@ -51,6 +49,10 @@ $('.close').on('click', function(){
   $('#catTarget').on('click', '.edit-cat', handleCatEditClick);
   //calls upon save changes function below when save button is clicked
   $('#catTarget').on('click', '.btn.btn-success.save-cat', handleSavedChangesClick);
+  // catch and handle the click on an add song button
+  // $('#catTarget').on('click', '.email-owner', handleAddOwnerClick);
+  // save song modal save button
+  // $('#saveSong').on('click', handleNewSongSubmit);
 
 });
 
@@ -94,6 +96,15 @@ function(data){
   renderCat(data);
 });
 }
+
+// when the add owner button is clicked, display the modal
+// function handleAddOwnerClick(e) {
+//   console.log('add-owner clicked!');
+//   var currentCatId = $(this).closest('.cat').data('cat-id');
+//   console.log('id',currentCatId);
+//   $('#ownerModal').data('cat-id', currentCatId);
+//   $('#ownerModal').modal();  // display the modal!
+// }
 
 function deleteCatSuccess(json) {
   var cat = json;

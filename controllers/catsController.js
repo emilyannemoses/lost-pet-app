@@ -31,7 +31,11 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  db.Cat.findOneAndRemove({ _id: req.params.catId }, function(err, foundCat){
+  db.Cat.findOneAndRemove(
+    {
+      _id: req.params.catId
+    },
+  function(err, foundCat){
     res.json(foundCat);
   });
 }
@@ -42,15 +46,15 @@ function update(req, res) {
     if(err) { console.log('catController.update error', err); }
     foundCat.petName = req.body.petName;
     foundCat.pictureUrl = req.body.pictureUrl;
-    foundCat.dateLastSeen = req.body.dateLastSeen;
     foundCat.locationLastSeen = req.body.locationLastSeen;
+    foundCat.dateLastSeen = req.body.dateLastSeen;
     foundCat.save(function(err, savedCat) {
       if(err) { console.log('saving altered cat failed'); }
       res.json(savedCat);
     });
   });
-}
 
+}
 
 // export public methods here
 module.exports = {
