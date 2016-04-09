@@ -135,7 +135,7 @@
 
                         <li class="list-group-item">
                           <h4 class="inline-header">Owner</h4>
-                          <span> {{#each owner}}{{email}}{{/each}}</span>
+                          <span> {{#each owners}} {{email}} {{/each}}</span>
                         </li>
 
                       </ul>
@@ -193,20 +193,4 @@
       </div><!-- /.modal -->
 
 </body>
-
-<!-- template for editing / deleting a owner -->
-   <script id='owner-edit-template' type='text/x-handlebars-template'>
-     {{#each owners}}
-     <!-- confused by ../albumId ?  See:
-     http://stackoverflow.com/questions/12297959/access-properties-of-the-parent-with-a-handlebars-each-loop#12297980
-     -->
-     <form class="form-inline" id="{{_id}}" data-cat-id="{{../catId}}" >
-       <div class="form-group">
-         <input type="text" class="form-control owner-email" value="{{email}}">
-       </div>
-     </form>
-     {{/each}}
-   </script>
-
-
 </html>
