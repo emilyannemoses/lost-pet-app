@@ -16,12 +16,14 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
 div#map {
 height: 400px;
 width: 800px;
 margin-bottom: 1%;
 }
-fieldset{
+
+fieldset {
   width: 100%;
 }
 .jumbotron {
@@ -53,6 +55,8 @@ h2{
 }
 .pop{
   position: fixed;
+  height: 400px;
+  width: 95%;
   background-color: white;
   z-index: 3;
 }

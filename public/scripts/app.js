@@ -34,26 +34,74 @@ $(document).ready(function() {
   $('#cats').on('click', '.save-cat', handleSaveChangesClick);
 
 });
-
 // GOOGLE MAP FUNCTIONALITY BELOW
-var map;
-var marker;
-var markers;
 
-  function initMap() {
-  var myLatLng = { lat: 37.78, lng: -122.44};
-  var map = new google.maps.Map(document.getElementById('map'), {
+var map;
+var infoWindow;
+var service;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 37.78, lng: -122.44},
     zoom: 10,
-    center: myLatLng
+    styles: [{
+      stylers: [{ visibility: 'simplified' }]
+    }, {
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }]
+    }]
   });
 
+  infoWindow = new google.maps.InfoWindow();
+  service = new google.maps.places.PlacesService(map);
+
+  // The idle event is a debounced event, so we can query & listen without
+  // throwing too many requests at the server.
+  map.addListener('idle', performSearch);
+}
+
+function performSearch() {
+  var request = {
+    bounds: map.getBounds(),
+    keyword: 'cats'
+  };
+  service.radarSearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+    console.error(status);
+    return;
+  }
+  for (var i = 0, result; result = results[i]; i++) {
+    addMarker(result);
+  }
+}
+
+function addMarker(place) {
   var marker = new google.maps.Marker({
-    position: myLatLng,
     map: map,
-    title: 'Hello World!'
+    position: place.geometry.location,
+    icon: {
+      url: 'http://maps.gstatic.com/mapfiles/circle.png',
+      anchor: new google.maps.Point(10, 10),
+      scaledSize: new google.maps.Size(10, 17)
+    }
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    service.getDetails(place, function(result, status) {
+      if (status !== google.maps.places.PlacesServiceStatus.OK) {
+        console.error(status);
+        return;
+      }
+      infoWindow.setContent(result.name);
+      infoWindow.open(map, marker);
+    });
   });
 }
-// GOOGLE MAP FUNCTIONALITY ABOVE
+// GOOGLE MAP API FUNCTIONALITY ENDS
+
 
 // when the edit button for a cat is clicked
 function handleCatEditClick(e) {
