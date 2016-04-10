@@ -55,8 +55,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   service = new google.maps.places.PlacesService(map);
 
-  // The idle event is a debounced event, so we can query & listen without
-  // throwing too many requests at the server.
   map.addListener('idle', performSearch);
 }
 
