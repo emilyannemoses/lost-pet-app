@@ -29,7 +29,7 @@ $(document).ready(function() {
   $('#cats').on('click', '.owner-email', handleAddOwnerClick);
 
 
-  $('#saveOwner').on('click', handleNewOwnerSubmit); //MUST BE #SAVEOWNER FOR THE BUTTON TO HAVE THE ID OF THE CAT
+  $('#saveOwner').on('click', handleNewOwnerSubmit);
   $('#cats').on('click', '.delete-cat', handleDeleteCatClick);
   $('#cats').on('click', '.edit-cat', handleCatEditClick);
   $('#cats').on('click', '.save-cat', handleSaveChangesClick);
@@ -41,9 +41,7 @@ function handleCatEditClick(e) {
   var catId = $catRow.data('cat-id');
   console.log('edit cat', catId);
 
-  // show the save changes button
   $catRow.find('.save-cat').toggleClass('hidden');
-  // hide the edit button
   $catRow.find('.edit-cat').toggleClass('hidden');
 
 
@@ -131,7 +129,7 @@ function handleAddOwnerClick(e) {
   var currentCatId = $(this).closest('.cat').data('cat-id');
   console.log('id',currentCatId);
   $('#ownerModal').data('cat-id', currentCatId);
-  $('#ownerModal').modal();  // display the modal!
+  $('#ownerModal').modal();
 }
 
 // when the cat modal submit button is clicked:
@@ -139,21 +137,16 @@ function handleNewOwnerSubmit(e) {
   e.preventDefault();
   var $modal = $('#ownerModal');
   var $ownerEmailField = $modal.find('#ownerEmail');
-  // get data from modal fields
   var dataToPost = {
       email: $ownerEmailField.val()
     };
   var catId = $modal.data('catId');
   console.log('retrieved ownerEmail:', ownerEmail);
-  // POST to SERVER
   var ownerPostToServerUrl = '/api/cats/'+ catId + '/owners';
   $.post(ownerPostToServerUrl, dataToPost, function(data) {
     console.log('received data from post to /owners:', data);
-    // clear form
     $ownerEmailField.val('');
-    // close modal
     $modal.modal('hide');
-    // update the correct cat to show the new cat
     fetchAndReRenderCatWithId(catId);
   }).error(function(err) {
     console.log('post to /api/cats/:catId/owners resulted in error', err);
