@@ -11,16 +11,6 @@
 	/*}*/
 /*}*/
 
-/*GOOGLE MAP STYLING*/
-/*html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-  #map {
-  height: 100%;
-}*/
-
 .jumbotron {
   background-image: url(/images/cat.png);
   background-size: cover;
@@ -36,14 +26,13 @@
   vertical-align: baseline;
   margin-right: 12px;
 }
-
+.list-group-item{
+  font-family: arial;
+  font-size: 26px;
+  
+}
 .hidden {
   display: none;
-}
-
-.btn1{
-		padding: 5px;
-		margin-top: 5px;
 }
 h2{
   text-align: center;
