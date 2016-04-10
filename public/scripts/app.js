@@ -1,5 +1,3 @@
-/* CLIENT-SIDE JS
- */
 $(document).ready(function() {
   console.log('app.js loaded!');
   $.get('/api/cats').success(function (cats) {
@@ -14,10 +12,11 @@ $(document).ready(function() {
     console.log('formData', formData);
     $.post('/api/cats', formData, function(cat) {
       console.log('cat after POST', cat);
-      renderCat(cat);  //render the server's response
+      renderCat(cat);
     });
     $(this).trigger("reset");
   });
+
   //INFO BUTTON POPUP
   $('#infoImage').on('click', function(){
     $('.pop.hidden').removeClass('hidden');
@@ -30,7 +29,7 @@ $(document).ready(function() {
   $('#cats').on('click', '.owner-email', handleAddOwnerClick);
 
 
-  $('#saveOwner').on('click', handleNewOwnerSubmit); //MUST BE SAVE OWNER FOR THE BUTTON TO HAVE THE ID OF THE CAT
+  $('#saveOwner').on('click', handleNewOwnerSubmit); //MUST BE #SAVEOWNER FOR THE BUTTON TO HAVE THE ID OF THE CAT
   $('#cats').on('click', '.delete-cat', handleDeleteCatClick);
   $('#cats').on('click', '.edit-cat', handleCatEditClick);
   $('#cats').on('click', '.save-cat', handleSaveChangesClick);
@@ -64,7 +63,7 @@ function handleCatEditClick(e) {
 
 // after editing a cat, when the save changes button is clicked
 function handleSaveChangesClick(e) {
-  var catId = $(this).parents('.cat').data('cat-id'); // $(this).closest would have worked fine too
+  var catId = $(this).parents('.cat').data('cat-id');
   var $catRow = $('[data-cat-id=' + catId + ']');
 
   var data = {
@@ -87,12 +86,8 @@ function handleCatUpdatedResponse(data) {
   console.log('response to update', data);
 
   var catId = data._id;
-  // scratch this album from the page
   $('[data-cat-id=' + catId + ']').remove();
-  // and then re-draw it with the updates ;-)
   renderCat(data);
-
-  // BONUS: scroll the change into view ;-)
   $('[data-cat-id=' + catId + ']')[0].scrollIntoView();
 }
 
@@ -159,7 +154,6 @@ function handleNewOwnerSubmit(e) {
     // close modal
     $modal.modal('hide');
     // update the correct cat to show the new cat
-    // update the correct album to show the new song
     fetchAndReRenderCatWithId(catId);
   }).error(function(err) {
     console.log('post to /api/cats/:catId/owners resulted in error', err);

@@ -4,9 +4,6 @@
 
 var db = require('../models');
 
-
-
-// GET /api/albums
 function index(req, res) {
   db.Cat.find({}, function(err, allCats) {
     res.json(allCats);
@@ -56,7 +53,6 @@ function update(req, res) {
 
 }
 
-// export public methods here
 module.exports = {
   index: index,
   create: create,

@@ -6,6 +6,7 @@ function index(req, res) {
     res.json(foundCat.owners);
   });
 }
+
 // POST '/api/cats/:catId/owners'
 function create(req, res) {
   db.Cat.findById(req.params.catId, function(err, foundCat) {
@@ -22,7 +23,6 @@ function create(req, res) {
 function update(req, res) {
   db.Cat.findById(req.params.catId, function(err, foundCat) {
     console.log(foundCat);
-    // we've got the cat, now find the owner within it
     var correctOwner = foundCat.owners.id(req.params.ownerId);
     if (correctOwner) {
       console.log(req.body);
