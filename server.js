@@ -31,6 +31,7 @@ app.get('/', function homepage (req, res) {
 /**********
  * SERVER *
  **********/
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.MONGOLAB_URI ||
+                      process.env.MONGOHQ_URL || process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
 });
