@@ -35,6 +35,26 @@ $(document).ready(function() {
 
 });
 
+// GOOGLE MAP FUNCTIONALITY BELOW
+var map;
+var marker;
+var markers;
+
+  function initMap() {
+  var myLatLng = { lat: 37.78, lng: -122.44};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+// GOOGLE MAP FUNCTIONALITY ABOVE
+
 // when the edit button for a cat is clicked
 function handleCatEditClick(e) {
   var $catRow = $(this).closest('.cat');

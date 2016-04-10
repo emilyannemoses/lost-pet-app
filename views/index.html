@@ -14,11 +14,8 @@
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/vendor/handlebars/handlebars.min.js"></script>
     <!-- Google Maps API -->
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&libraries=places,geometry"></script> -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&callback=initMap&libraries=places"
     async defer></script>
-
 
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
@@ -42,154 +39,159 @@
     </div>
   </div>
 
-<!-- BEGIN HANDLEBARS - CAROUSEL IS COMMENTED OUT FOR NOW -->
-<div class="container">
-  <div class="jumbotron">
-        <h1>Feline Finder</h1>
+  <!-- BEGIN HANDLEBARS - CAROUSEL IS COMMENTED OUT FOR NOW -->
+  <div class="container">
+    <div class="jumbotron">
+          <h1>Feline Finder</h1>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <form action="/" method="post" class="form-horizontal" id="newCatForm">
-          <fieldset>
 
-          <!-- Text input-->
-          <div class="form-group">
-            <!-- <label class="col-md-4 control-label" for="name"></label> -->
-              <div class="col-md-4">
-              <input id="petName" name="petName" type="text" placeholder="Pet Name" class="form-control input-md">
-            </div>
-          </div>
+  <div class="col-md-12 col-md-offset-2">
+      <div id="map"></div>
+  </div>
 
-          <!-- Text input-->
-          <div class="form-group">
-            <!-- <label class="col-md-4 control-label" for="pictureUrl"></label> -->
-            <div class="col-md-4">
-            <input id="pictureUrl" name="pictureUrl" type="text" placeholder="Picture Url" class="form-control input-md">
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-md-12 col-md-offset-4">
+          <form action="/" method="post" class="form-horizontal" id="newCatForm">
+            <fieldset>
 
-          <!-- Text input-->
-          <div class="form-group search-form">
-            <!-- <label class="col-md-4 control-label" for="locationLastSeen"></label> -->
-            <div class="col-md-4">
-            <input id="locationLastSeen" name="locationLastSeen" type="text" placeholder="Location Last Seen" class="controls form-control input-md">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <!-- <label class="col-md-4 control-label" for="dateLastSeen"></label> -->
-            <div class="col-md-4">
-            <input id="dateLastSeen" name="dateLastSeen" type="text" placeholder="Date Last Seen" class="form-control input-md">
-            </div>
-          </div>
-
-          <!-- Button -->
+            <!-- Text input-->
             <div class="form-group">
-              <!-- <label class="col-md-4 control-label" for="singlebutton"></label> -->
-              <div class="col-md-4">
-              <button type="submit" id="singlebutton" name="singlebutton" class="add-cat btn btn-primary">Post A Lost Cat</button>
+              <!-- <label class="col-md-4 control-label" for="name"></label> -->
+                <div class="col-md-4">
+                <input id="petName" name="petName" type="text" placeholder="Pet Name" class="form-control input-md">
               </div>
             </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </section>
 
-  <section id="cat-form">
-        <div id="cats">
-          <!-- handlebars template -->
-          <script id="cat-template" type="text/x-handlebars-template">
-            <div class="row cat" data-cat-id="{{_id}}">
+            <!-- Text input-->
+            <div class="form-group">
+              <!-- <label class="col-md-4 control-label" for="pictureUrl"></label> -->
+              <div class="col-md-4">
+              <input id="pictureUrl" name="pictureUrl" type="text" placeholder="Picture Url" class="form-control input-md">
+              </div>
+            </div>
 
-              <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                  <div class="panel-body">
+            <!-- Text input-->
+            <div class="form-group search-form">
+              <!-- <label class="col-md-4 control-label" for="locationLastSeen"></label> -->
+              <div class="col-md-4">
+              <input id="locationLastSeen" name="locationLastSeen" type="text" placeholder="Location Last Seen" class="controls form-control input-md">
+              </div>
+            </div>
 
-                    <div class="col-md-9 col-xs-12">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          <h4 class='inline-header'></h4>
-                          <span class='petName'>{{petName}}</span>
-                        </li>
+            <!-- Text input-->
+            <div class="form-group">
+              <!-- <label class="col-md-4 control-label" for="dateLastSeen"></label> -->
+              <div class="col-md-4">
+              <input id="dateLastSeen" name="dateLastSeen" type="text" placeholder="Date Last Seen" class="form-control input-md">
+              </div>
+            </div>
 
-                        <li class="list-group-item">
-                          <h4 class='inline-header'></h4>
-                          <span class='pictureUrl'><img class="someClass" src="{{pictureUrl}}" height=350px width=450px></span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'></h4>
-                          <span class='locationLastSeen'>{{locationLastSeen}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'></h4>
-                          <span class='dateLastSeen'>{{dateLastSeen}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Pet Owners Email</h4>
-                          {{#each owners}}
-                          <span><a href="mailto:"><p>{{email}}</p></a></span>
-                        {{/each}}
-                        </li>
-
-                      </ul>
-                    </div>
-
-                  </div>
-                  <!-- end of album internal row -->
-
-                  <div class='panel-footer'>
-                    <div class='panel-footer'>
-                      <button class='owner-email btn btn-primary'>If you own this pet, please submit your email</button>
-                      <button class='btn btn-danger delete-cat'>I Found This Pet</button>
-                      <button class='btn btn-info edit-cat'>Edit Pet Information</button>
-                      <button class='btn btn-success save-cat hidden'>Save Changes</button>
-                    </div>
-
-                  </div>
-
+            <!-- Button -->
+              <div class="form-group">
+                <!-- <label class="col-md-4 control-label" for="singlebutton"></label> -->
+                <div class="col-md-4">
+                <button type="submit" id="singlebutton" name="singlebutton" class="add-cat btn btn-primary">Post A Lost Cat</button>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- end one album -->
-        </script>
-
+            </fieldset>
+          </form>
+        </div>
       </div>
     </section>
 
-  <!-- begin ownerModal: this is not visible until you call .modal() on it -->
-      <div class="modal fade" tabindex="-1" role="dialog" id="ownerModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-              <h4 class="modal-title">Owner Email</h4>
-            </div>
-            <div class="modal-body">
+    <section id="cat-form">
+          <div id="cats">
+            <!-- handlebars template -->
+            <script id="cat-template" type="text/x-handlebars-template">
+              <div class="row cat" data-cat-id="{{_id}}">
 
-              <fieldset class='form-horizontal'>
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="ownerEmail">Owner Email</label>
-                  <div class="col-md-4">
-                    <input id="ownerEmail" name="ownerEmail" type="text" placeholder="Owner Email" class="form-control input-md">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+
+                      <div class="col-md-9 col-xs-12">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4 class='inline-header'></h4>
+                            <span class='petName'>{{petName}}</span>
+                          </li>
+
+                          <li class="list-group-item">
+                            <h4 class='inline-header'></h4>
+                            <span class='pictureUrl'><img class="someClass" src="{{pictureUrl}}" height=350px width=450px></span>
+                          </li>
+
+                          <li class="list-group-item">
+                            <h4 class='inline-header'></h4>
+                            <span class='locationLastSeen'>{{locationLastSeen}}</span>
+                          </li>
+
+                          <li class="list-group-item">
+                            <h4 class='inline-header'></h4>
+                            <span class='dateLastSeen'>{{dateLastSeen}}</span>
+                          </li>
+
+                          <li class="list-group-item">
+                            <h4 class="inline-header">Pet Owners Email</h4>
+                            {{#each owners}}
+                            <span><a href="mailto:"><p>{{email}}</p></a></span>
+                          {{/each}}
+                          </li>
+
+                        </ul>
+                      </div>
+
+                    </div>
+                    <!-- end of album internal row -->
+
+                    <div class='panel-footer'>
+                      <div class='panel-footer'>
+                        <button class='owner-email btn btn-primary'>If you own this pet, please submit your email</button>
+                        <button class='btn btn-danger delete-cat'>I Found This Pet</button>
+                        <button class='btn btn-info edit-cat'>Edit Pet Information</button>
+                        <button class='btn btn-success save-cat hidden'>Save Changes</button>
+                      </div>
+
+                    </div>
+
                   </div>
                 </div>
-              </fieldset>
-
+              </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="saveOwner">Save Email</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+            <!-- end one album -->
+          </script>
 
-</body>
-</html>
+        </div>
+      </section>
+
+    <!-- begin ownerModal: this is not visible until you call .modal() on it -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="ownerModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <h4 class="modal-title">Owner Email</h4>
+              </div>
+              <div class="modal-body">
+
+                <fieldset class='form-horizontal'>
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="ownerEmail">Owner Email</label>
+                    <div class="col-md-4">
+                      <input id="ownerEmail" name="ownerEmail" type="text" placeholder="Owner Email" class="form-control input-md">
+                    </div>
+                  </div>
+                </fieldset>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="saveOwner">Save Email</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+  </body>
+  </html>
