@@ -13,6 +13,8 @@
     <script src="/vendor/jQuery/dist/jquery.min.js"></script>
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/vendor/handlebars/handlebars.min.js"></script>
+    <!-- Google Maps API -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGrEuCqAQ6YUp4J2A_rFfZYxFHaYeFqbc"></script> -->
 
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
@@ -23,7 +25,6 @@
     <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
   <div class = "container">
       <a href="#jump"><img class = "info" id="infoImage" src="images/info.svg"></a>
-
     <div class="general">
     <a name="jump"><div class="pop hidden"></a>
       <button name = "button" class="close">Close</button>
@@ -45,7 +46,7 @@
     </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <form class="form-horizontal" id="newCatForm">
+        <form action="/" class="form-horizontal" id="newCatForm">
           <fieldset>
 
           <!-- Text input-->
@@ -73,7 +74,7 @@
           </div>
 
           <!-- Text input-->
-          <div class="form-group">
+          <div class="form-group search-form">
             <label class="col-md-4 control-label" for="locationLastSeen"></label>
             <div class="col-md-4">
             <input id="locationLastSeen" name="locationLastSeen" type="text" placeholder="Location Last Seen" class="form-control input-md">
@@ -119,6 +120,7 @@
 
                         <li class="list-group-item">
                           <h4 class='inline-header'></h4>
+                          <div id="map" class="map-canvas"></div>
                           <span class='locationLastSeen'>{{locationLastSeen}}</span>
                         </li>
 
