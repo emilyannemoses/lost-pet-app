@@ -39,10 +39,10 @@ fieldset{
   vertical-align: baseline;
   margin-right: 12px;
 }
-/*.list-group-item{
-  font-family: arial;
-  font-size: 26px;
-}*/
+.list-group-item{
+  font-family: garamond;
+  font-size: 24px;
+}
 .hidden {
   display: none;
 }
