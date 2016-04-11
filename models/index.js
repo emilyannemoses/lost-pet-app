@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 // mongoose.connect("mongodb://localhost/project-01");
 mongoose.connect( process.env.MONGOLAB_URI ||
                       process.env.MONGOHQ_URL ||
-                      "mongodb://localhost/project-01" );
+                      "mongodb://protected-sea-74069.herokuapp.com/" );
 
 var Cat = require('./cat');
 
