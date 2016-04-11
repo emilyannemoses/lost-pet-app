@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  max-width: 1262px;
+  max-width: 1200px;
 }
 
 div#map {
@@ -24,6 +24,7 @@ button{
 footer{
   text-align: center;
   height: 100px;
+  width: 100%;
   background-color: lightgrey;
   color: white;
   padding-top: 30px;
