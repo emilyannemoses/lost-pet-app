@@ -23,7 +23,7 @@ button{
 }
 footer{
   text-align: center;
-  height: 100px;
+  height: 175px;
   width: 100%;
   background-color: lightgrey;
   color: white;
@@ -61,6 +61,7 @@ h2{
   width: 90%;
   background-color: white;
   z-index: 3;
+  border-radius: 25px;
 }
 
 /*INFO BUTTON STYLES*/
