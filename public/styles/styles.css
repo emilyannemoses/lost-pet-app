@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  max-width: 1200px;
+  max-width: 1262px;
 }
 
 div#map {
@@ -20,6 +20,16 @@ img{
 }
 button{
   margin: 5px 5px 5px 5px;
+}
+footer{
+  text-align: center;
+  height: 100px;
+  background-color: lightgrey;
+  color: white;
+  padding-top: 30px;
+  font-family: arial;
+  font-size: 26px;
+  text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
 }
 .header img{
   border-radius: 15px;
