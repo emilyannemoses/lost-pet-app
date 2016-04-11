@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jQuery": "~2.2.2",
+    "jquery": "^2.2.3",
     "bootstrap": "~3.3.6",
     "handlebars": "~4.0.5"
   }
