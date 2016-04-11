@@ -10,10 +10,8 @@ div#map {
   border-radius: 15px;
   margin: 3% auto auto auto;
 }
-
-fieldset{
-  margin-top: 75px;
-  margin-bottom: 15px;
+.col-md-7{
+  margin-top: 3%;
 }
 img{
   border-radius: 15px;
@@ -64,7 +62,6 @@ h2{
   z-index: 3;
   border-radius: 25px;
 }
-
 /*INFO BUTTON STYLES*/
 #infoImage{
   position: fixed;
