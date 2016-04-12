@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('app.js loaded!');
   $.get('/api/cats').success(function (cats) {
     cats.forEach(function(cat) {
       renderCat(cat);
@@ -9,9 +8,7 @@ $(document).ready(function() {
   $('#newCatForm').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
-    console.log('formData', formData);
     $.post('/api/cats', formData, function(cat) {
-      console.log('cat after POST', cat);
       renderCat(cat);
     });
     $(this).trigger("reset");
@@ -68,7 +65,6 @@ function performSearch() {
 
 function callback(results, status) {
   if (status !== google.maps.places.PlacesServiceStatus.OK) {
-    console.error(status);
     return;
   }
   for (var i = 0, result; result = results[i]; i++) {
@@ -104,7 +100,6 @@ function addMarker(place) {
 function handleCatEditClick(e) {
   var $catRow = $(this).closest('.cat');
   var catId = $catRow.data('cat-id');
-  console.log('edit cat', catId);
 
   $catRow.find('.save-cat').toggleClass('hidden');
   $catRow.find('.edit-cat').toggleClass('hidden');
@@ -135,7 +130,6 @@ function handleSaveChangesClick(e) {
     locationLastSeen: $catRow.find('.edit-locationLastSeen').val(),
     dateLastSeen: $catRow.find('.edit-dateLastSeen').val()
   };
-  console.log('PUTing data for cat', catId, 'with data', data);
 
   $.ajax({
     method: 'PUT',
@@ -146,7 +140,6 @@ function handleSaveChangesClick(e) {
 }
 
 function handleCatUpdatedResponse(data) {
-  console.log('response to update', data);
 
   var catId = data._id;
   $('[data-cat-id=' + catId + ']').remove();
@@ -157,7 +150,6 @@ function handleCatUpdatedResponse(data) {
 // when a delete button for a cat is clicked
 function handleDeleteCatClick(e) {
   var catId = $(this).parents('.cat').data('cat-id');
-  console.log('someone wants to delete cat id=' + catId );
   $.ajax({
     url: '/api/cats/' + catId,
     method: 'DELETE',
@@ -168,7 +160,6 @@ function handleDeleteCatClick(e) {
 // callback after DELETE /api/cats/:id
 function handleDeleteCatSuccess(data) {
   var deletedCatId = data._id;
-  console.log('removing the following cat from the page:', deletedCatId);
   $('div[data-cat-id=' + deletedCatId + ']').remove();
 }
 
@@ -181,7 +172,6 @@ function fetchAndReRenderCatWithId(catId) {
 
 // this function takes a single cat and renders it to the page
 function renderCat(cat) {
-  console.log('rendering cat', cat);
   var catHtml = $('#cat-template').html();
   var catsTemplate = Handlebars.compile(catHtml);
   var html = catsTemplate(cat);
@@ -190,9 +180,7 @@ function renderCat(cat) {
 
 // when the add owner email button is clicked, display the modal
 function handleAddOwnerClick(e) {
-  console.log('owne email clicked!');
   var currentCatId = $(this).closest('.cat').data('cat-id');
-  console.log('id',currentCatId);
   $('#ownerModal').data('cat-id', currentCatId);
   $('#ownerModal').modal();
 }
@@ -206,10 +194,8 @@ function handleNewOwnerSubmit(e) {
       email: $ownerEmailField.val()
     };
   var catId = $modal.data('catId');
-  console.log('retrieved ownerEmail:', ownerEmail);
   var ownerPostToServerUrl = '/api/cats/'+ catId + '/owners';
   $.post(ownerPostToServerUrl, dataToPost, function(data) {
-    console.log('received data from post to /owners:', data);
     $ownerEmailField.val('');
     $modal.modal('hide');
     fetchAndReRenderCatWithId(catId);
