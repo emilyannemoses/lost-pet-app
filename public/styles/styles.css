@@ -53,18 +53,29 @@ INFO POPUP STYLING
 .hidden {
   display: none;
 }
+button.close{
+  color: white;
+  font-size: 26px;
+  padding-top: 2%;
+}
 h2{
   text-align: center;
-  color: black;
-  font-family: arial;
+  color: white;
+  font-family: times;
+  font-size: 24px;
 }
 .pop{
   position: fixed;
-  height: 90%;
-  width: 90%;
-  background-color: white;
+  margin-left: 17%;
+  margin-top: 10%;
+  height: 60%;
+  width: 50%;
+  background-color: black;
+  opacity: 0.7;
+  color: white;
   z-index: 3;
-  border-radius: 25px;
+  border-radius: 23px;
+  overflow:auto;
 }
 #infoImage{
   position: fixed;
