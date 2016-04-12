@@ -110,7 +110,9 @@ function handleCatEditClick(e) {
   $catRow.find('span.petName').html('<input class="edit-petName" value="' + petName + '"></input>');
 
   var pictureUrl = $catRow.find('span.pictureUrl').text();
-  $catRow.find('span.pictureUrl').html('<input class="edit-pictureUrl" value="' + pictureUrl + '"></input>');
+  var catImage = $catRow.find('img.picUrlClass').attr('src');
+
+  $catRow.find('span.pictureUrl').html('<input class="edit-picUrlClass" placeholder="Image Link" value="' + catImage + '"></input>');
 
   var locationLastSeen = $catRow.find('span.locationLastSeen').text();
   $catRow.find('span.locationLastSeen').html('<input class="edit-locationLastSeen" value="' + locationLastSeen + '"></input>');
@@ -126,7 +128,7 @@ function handleSaveChangesClick(e) {
 
   var data = {
     petName: $catRow.find('.edit-petName').val(),
-    pictureUrl: $catRow.find('.edit-pictureUrl').val(),
+    pictureUrl: $catRow.find('.edit-picUrlClass').val(),
     locationLastSeen: $catRow.find('.edit-locationLastSeen').val(),
     dateLastSeen: $catRow.find('.edit-dateLastSeen').val()
   };
