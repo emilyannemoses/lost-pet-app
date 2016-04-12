@@ -32,6 +32,6 @@ Planned Features:
 * Create log-in for owners to manage their lost pets
 
 Screenshot:
-![Alt text](../public/images/readmeScreenShot.png?raw=true "PetFinder")
+![Alt text](public/images/readmeScreenShot.png?raw=true "PetFinder")
 
 Github link: https://github.com/eamoses/project-01
