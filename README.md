@@ -8,17 +8,17 @@ The main functionality of the Pet Finder is to be able to post lost pets, their 
 Link to Heroku: http://protected-sea-74069.herokuapp.com
 
 Technologies Used:
-jQuery
-AJAX
-Express
-Node.js
-Mongoose
-MongoDB
-Heroku
-Bootstrap
-Handlebars
-HTML5
-CSS3
+* jQuery
+* AJAX
+* Express
+* Node.js
+* Mongoose
+* MongoDB
+* Heroku
+* Bootstrap
+* Handlebars
+* HTML5
+* CSS3
 
 Existing Features:
 * Creating new lost pet with name, picture, location and date
@@ -32,6 +32,6 @@ Planned Features:
 * Create log-in for owners to manage their lost pets
 
 Screenshot:
-![Alt text](readmeScreenShot.png?raw=true "PetFinder")
+![Alt text](../readmeScreenShot.png?raw=true "PetFinder")
 
 Github link: https://github.com/eamoses/project-01

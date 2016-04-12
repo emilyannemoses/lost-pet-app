@@ -1,3 +1,6 @@
+/*********
+CAT SCHEMA
+*********/
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
@@ -11,6 +14,6 @@ var CatSchema = new Schema({
   owners: [Owner.schema]
 });
 
-//exporting the cat schema to mongoose and index.js model
+/*EXPORTING CAT SCHEMA TO MONGOOSE AND INDEX.JS MDOEL*/
 var Cat = mongoose.model('Cat', CatSchema);
 module.exports = Cat;

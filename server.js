@@ -1,4 +1,6 @@
-/// SERVER-SIDE JAVASCRIPT
+/************************
+* SERVER-SIDE JAVASCRIPT*
+************************/
 var express = require('express'),
     db = require('./models'),
     bodyParser = require('body-parser');

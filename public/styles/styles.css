@@ -1,51 +1,55 @@
+/***********
+BODY STYLING
+***********/
 body {
   margin: auto;
   padding: 0;
   max-width: 1200px;
 }
 
+/*****************
+GOOGLE MAP STYLING
+*****************/
 div#map {
   height: 450px;
   width: 600px;
   border-radius: 15px;
   margin: 3% auto auto auto;
 }
+
+/************************
+FORMS AND BUTTONS STYLING
+************************/
 .col-md-7{
   margin-top: 3%;
-}
-img{
-  border-radius: 15px;
 }
 button{
   margin: 5px 5px 5px 5px;
 }
-footer{
-  text-align: center;
-  height: 125px;
-  width: 100%;
-  background-color: lightgrey;
-  border-radius: 25px;
-  color: white;
-  padding-top: 30px;
-  font-family: arial;
-  font-size: 26px;
-  text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
-}
+
+/*************
+HEADER STYLING
+*************/
 .header img{
   border-radius: 15px;
   width: 100%;
   height: auto;
 }
 
-.inline-header {
-  display: inline;
-  vertical-align: baseline;
-  margin-right: 12px;
-}
+/************************
+CONTENT WITHIN HANDLEBARS
+************************/
 .list-group-item{
   font-family: garamond;
   font-size: 24px;
 }
+img{
+  border-radius: 15px;
+}
+
+/*****************
+INFO POPUP STYLING
+*****************/
 .hidden {
   display: none;
 }
@@ -56,13 +60,12 @@ h2{
 }
 .pop{
   position: fixed;
-  height: 400px;
+  height: 90%;
   width: 90%;
   background-color: white;
   z-index: 3;
   border-radius: 25px;
 }
-/*INFO BUTTON STYLES*/
 #infoImage{
   position: fixed;
   top:0;
@@ -73,3 +76,19 @@ h2{
   height: 5%;
   z-index: 2;
 }
+
+ /**********
+ FOOTER STYLING
+ **********/
+ footer{
+   text-align: center;
+   height: 125px;
+   width: 100%;
+   background-color: lightgrey;
+   border-radius: 25px;
+   color: white;
+   padding-top: 30px;
+   font-family: arial;
+   font-size: 26px;
+   text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
+ }
