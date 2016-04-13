@@ -93,13 +93,13 @@ h2{
  **********/
  footer{
    text-align: center;
-   height: 125px;
+   height: 75px;
    width: 100%;
    background-color: lightgrey;
    border-radius: 25px;
    color: white;
    padding-top: 30px;
    font-family: arial;
-   font-size: 26px;
+   font-size: 22px;
    text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
  }
