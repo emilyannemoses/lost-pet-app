@@ -1,176 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lost Pet Finder</title>
-    <link rel="icon" href="https://s-media-cache-ak0.pinimg.com/236x/08/3b/cb/083bcbed388a1136d2aea2054f53cddb.jpg">
+  <title>Lost Pet Finder</title>
+  <link rel="icon" href="https://s-media-cache-ak0.pinimg.com/236x/08/3b/cb/083bcbed388a1136d2aea2054f53cddb.jpg">
 
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
 
-    <!-- SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&callback=initMap&libraries=places"
-    async defer></script>
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&callback=initMap&libraries=places"
+  async defer></script>
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="scripts/app.js"></script>
-  </head>
+  <!-- APPLICATION SCRIPTS -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/reactScript.js"></script>
+</head>
 
 <body>
-    <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
+  <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
   <div class = "container">
     <a href="#jump"><img class = "info" id="infoImage" src="images/info.svg" alt="Info"></a>
-      <div class="general">
-        <a name="jump"><div class="pop hidden"></a>
-          <button name = "button" class="close">X &nbsp;&nbsp;&nbsp;</button>
-            <h2>
-              <p>Welcome to the Feline Finder!</p>
-              <br><p>Use the map to locate pet adoption centers<br>&nbsp;and other pet-related businesses in the San Francisco Bay Area.</p><br>
-              <p>If your pet has lost his way home,<p></p> please post their picture along with your email address.</p><br>
-              <p>If you've found your pet, simply click 'I Found This Pet'</p>
-              <p>and it will delete your pet from our site.</p>
-            </h2>
-          </div>
+    <div class="general">
+      <a name="jump"><div class="pop hidden"></a>
+        <button name = "button" class="close">X &nbsp;&nbsp;&nbsp;</button>
+        <h2>
+          <p>Use the map to locate pet adoption centers and other pet-related<p></p>businesses in the San Francisco Bay Area.</p><br>
+          <p>If your pet has lost his way home,<p></p> please post their picture along with your email address.</p><br>
+          <p>If you've found your pet, simply click 'I Found This Pet'</p>
+          <p>and it will delete your pet from our site.</p>
+        </h2>
       </div>
     </div>
+  </div>
+  <!-- BEGIN REACTJS -->
+  <div id="root"></div>
+  <div class="App">
+    <p class="App-intro">
+      Welcome to Feline & Friends Finder</p>
+      <p class="App-description">
+        Post a picture of your lost pet along with your email and location so our community can help you locate them!
+      </p>
 
-  <!-- BEGIN HANDLEBARS -->
-<header class="header">
-  <img src="/images/cat.png" alt="Large Cat Picture">
-    </header>
-
-      <div class="col-md-12">
-        <div id="map"></div>
-      </div>
-
-    <div class="row">
-      <div class="col-md-7 col-md-offset-5">
+      <div class="App-form">
         <form method="post" class="form-horizontal" id="newCatForm">
-          <fieldset>
-            <!-- Text input-->
-            <div class="form-group">
-              <div class="col-md-4">
-                <input id="petName" name="petName" type="text" placeholder="Pet Name" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <div class="col-md-4">
-                <input id="pictureUrl" name="pictureUrl" type="text" placeholder="Picture Url" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group search-form">
-              <div class="col-md-4">
-                <input id="locationLastSeen" name="locationLastSeen" type="text" placeholder="Location Last Seen" class="control form-control input-md">
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <div class="col-md-4">
-                <input id="dateLastSeen" name="dateLastSeen" type="text" placeholder="Date Last Seen" class="form-control input-md">
-              </div>
-            </div>
-            <!-- Button -->
-            <div class="form-group">
-              <div class="col-md-4">
-                <button type="submit" id="singlebutton" name="singlebutton" class="add-cat btn btn-primary">Post A Lost Cat</button>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </section>
 
-  <section id="cat-form">
-    <div id="cats">
-      <!-- handlebars template -->
-      <script id="cat-template" type="text/x-handlebars-template">
-        <div class="row cat" data-cat-id="{{_id}}">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-12">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class='petName'>{{petName}}</span>
-                    </li>
-                    <li class="list-group-item">
-                      <span class='pictureUrl'><img class="picUrlClass" src="{{pictureUrl}}" height=350px width=450px alt="Lost Cat Picture"></span>
-                    </li>
-                    <li class="list-group-item">
-                      <span class='locationLastSeen'>{{locationLastSeen}}</span>
-                    </li>
-                    <li class="list-group-item">
-                      <span class='dateLastSeen'>{{dateLastSeen}}</span>
-                    </li>
-                    <li class="list-group-item">
-                      {{#each owners}}
-                        <span><a href="mailto:" target="_blank"><br>Email The Owner<p>{{email}}</p></a></span>
-                      {{/each}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- end of album internal row -->
+          <ul class="formStyle1">
 
+            <li>
+              <label class="firstClass">
+                Pet Name
+                <span class="required">*
+                </span>
+              </label>
+              <input
+              id="name"
+              type="text"
+              name="field1"
+              class="fieldLong"
+              placeholder="Pet Name"
+              />
+            </li>
+
+            <li>
+              <label>
+                Owners Email
+                <span
+                class="required"
+                >
+                *
+              </span>
+            </label>
+            <input
+            id="email"
+            type="email"
+            name="field3"
+            class="fieldLong"
+            placeholder="example@example.com"
+            />
+          </li>
+
+          <li>
+            <label>
+              Last Seen
+              <span
+              class="required"
+              >
+              *
+            </span>
+          </label>
+          <input
+          type="text"
+          name="field5"
+          id="field5"
+          class="fieldLong fieldTextArea"
+          placeholder="Location"
+          >
+        </input>
+      </li>
+
+      <li>
+        <label>
+          Picture URL
+          <span
+          class="required"
+          >
+          *
+        </span>
+      </label>
+      <input
+      id="picture"
+      type="text"
+      name="field4"
+      class="fieldPhoto"
+      placeholder="http://www.dogz.com/my-cute-pup.jpg"
+      />
+    </li>
+
+    <li>
+      <input
+      id="submit"
+      type="submit"
+      value="Add Your Pet"
+      >
+    </input>
+  </li>
+</ul>
+</form>
+</div>
+
+<div class="banner">
+  <img src="http://static1.squarespace.com/static/551c2806e4b0d35570d3026b/t/551d8cefe4b0404100cad28c/1427999983818/dog-and-cat-above-white-banner-looking-at-camera-53f7f2fb7aca4-1000x450.jpg" />
+</div>
+</div>
+
+<!-- BEGIN HANDLEBARS -->
+<section id="cat-form">
+  <div id="cats">
+    <!-- handlebars template -->
+    <script id="cat-template" type="text/x-handlebars-template">
+      <div class="row cat" data-cat-id="{{_id}}">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class='petName'>{{petName}}</span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class='pictureUrl'><img class="picUrlClass" src="{{pictureUrl}}" height=350px width=450px alt="Lost Cat Picture"></span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class='locationLastSeen'>{{locationLastSeen}}</span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class='dateLastSeen'>{{dateLastSeen}}</span>
+                  </li>
+                  <li class="list-group-item">
+                    {{#each owners}}
+                    <span><a href="mailto:" target="_blank"><br>Email The Owner<p>{{email}}</p></a></span>
+                    {{/each}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- end of album internal row -->
+
+            <div class='panel-footer'>
               <div class='panel-footer'>
-                <div class='panel-footer'>
-                    <button class='owner-email btn btn-primary'>If you own this pet, please submit your email</button>
-                    <button class='btn btn-danger delete-cat'>I Found This Pet</button>
-                    <button class='btn btn-info edit-cat'>Edit Pet Information</button>
-                    <button class='btn btn-success save-cat hidden'>Save Changes</button>
-                </div>
+                <button class='owner-email btn btn-primary'>Submit Pet Owner's Email</button>
+                <button class='btn btn-danger delete-cat'>I Found This Pet</button>
+                <button class='btn btn-info edit-cat'>Edit Pet Information</button>
+                <button class='btn btn-success save-cat hidden'>Save Changes</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- end one album -->
-    </script>
-  </div>
+    </div>
+    <!-- end one album -->
+  </script>
+</div>
 </section>
 
-    <!-- begin ownerModal: this is not visible until you call .modal() on it -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="ownerModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                <h4 class="modal-title">Owner Email</h4>
-              </div>
-            <div class="modal-body">
-              <fieldset class='form-horizontal'>
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="ownerEmail">Owner Email</label>
-                    <div class="col-md-4">
-                      <input id="ownerEmail" name="ownerEmail" type="text" placeholder="Owner Email" class="form-control input-md">
-                    </div>
-                </div>
-              </fieldset>
+<!-- begin ownerModal: this is not visible until you call .modal() on it -->
+<div class="modal fade" tabindex="-1" role="dialog" id="ownerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h4 class="modal-title">Owner Email</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class='form-horizontal'>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="ownerEmail"></label>
+            <div class="col-md-4">
+              <input id="ownerEmail" name="ownerEmail" type="text" placeholder="OwnerEmail@email.com" class="form-control input-md">
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="saveOwner">Save Email</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveOwner">Save Email</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-    <footer>
-      <p>
-      &copy; 2016 Emily Anne Moses, Cat Lover
-      </p>
-    </footer>
-  </body>
-  </html>
+<div id="map"></div>
+<footer>
+  <p>
+    &copy; 2016 Emily Anne Moses, Cat Lover
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
+<script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
+</body>
+</html>

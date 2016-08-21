@@ -1,51 +1,32 @@
-/***********
-BODY STYLING
-***********/
-body {
-  margin: auto;
-  padding: 0;
-  max-width: 1200px;
-}
-
-/*****************
-GOOGLE MAP STYLING
-*****************/
-div#map {
-  height: 450px;
-  width: 600px;
-  /*border-radius: 15px;*/
-  margin: 3% auto auto auto;
-}
-
 /************************
 FORMS AND BUTTONS STYLING
 ************************/
-.col-md-7{
+/*.col-md-7{
   margin-top: 3%;
 }
 button{
   margin: 5px 5px 5px 5px;
-}
+}*/
 
 /*************
 HEADER STYLING
 *************/
-.header img{
-  /*border-radius: 15px;*/
+/*div .banner{
+  margin: 0;
   width: 100%;
-  height: auto;
-}
+}*/
 
 /************************
 CONTENT WITHIN HANDLEBARS
 ************************/
-.list-group-item{
-  font-family: garamond;
+/*.list-group-item{
+  font-family: Avenir;
   font-size: 24px;
 }
 img{
-  /*border-radius: 15px;*/
-}
+  border-radius: 15px;
+}*/
+
 
 /*****************
 INFO POPUP STYLING
@@ -55,26 +36,21 @@ INFO POPUP STYLING
 }
 button.close{
   color: white;
-  font-size: 26px;
+  font-size: 24px;
   padding-top: 2%;
 }
 h2{
   text-align: center;
   color: white;
-  font-family: times;
-  font-size: 24px;
+  font-family: Avenir;
+  font-size: 18px;
+  font-weight: lighter;
+  padding-bottom: 30px;
 }
-.pop{
-  position: fixed;
-  margin-left: 17vw;
-  margin-top: 10vw;
-  height: 60vh;
-  width: 50vw;
-  background-color: black;
-  opacity: 0.7;
+div .pop{
+  background-color: grey;
   color: white;
   z-index: 3;
-  /*border-radius: 23px;*/
   overflow:auto;
 }
 #infoImage{
@@ -87,19 +63,208 @@ h2{
   height: 5%;
   z-index: 2;
 }
+div.container{
+  background-color: grey;
+  width: 100%;
+}
+
+ /***************************
+ TOP/MAIN ITEM PAGE ALIGNMENT
+ ***************************/
+
+ html{
+   margin: 0;
+   font-family: Avenir;
+ }
+ .App {
+   text-align: center;
+ }
+ .banner{
+   width: 100%;
+   height: 25%;
+   align-items: center;
+ }
+ .form-horizontal {
+   width: 100%;
+ }
+ .App-intro {
+   margin-top: 3%;
+   font-size: 24px;
+   font-family: Avenir;
+ }
+ .App-description{
+   font-size: 14px;
+   font-famiy: Avenir;
+   margin-bottom: 1%;
+ }
+
+ .inline-header {
+   display: inline-block;
+   vertical-align: baseline;
+   margin-right: 12px;
+   margin-top: 0;
+ }
+
+ /**************************************
+ SEARCH LOST PETS LINK AND SUBMIT BUTTON
+ **************************************/
+
+ .searchLost{
+   font-size: 20px;
+   background: #4B99AD;
+   padding: 8px 15px 8px 15px;
+   border: 1px solid #4B99AD;
+   color: #fff;
+   text-shadow: .5px .5px .5px black;
+   padding-bottom: 73%;
+   z-index: 0;
+ }
+ a#galBtn.searchLost{
+   margin-bottom: 10%;
+   padding-left: 10%;
+   padding-right: 10%;
+   z-index: 0;
+ }
+ .divideText{
+   color: white;
+   font-size: 14px;
+   text-shadow: .5px .5px .5px black;
+ }
+ a:hover{
+   color: lightgrey;
+ }
+ li #submit{
+   z-index: 999999;
+   padding: 5% 5% 5% 5%;
+   width: 55%;
+ }
+
+ /**********
+ FORM STYLES
+ ***********/
+
+ ul{
+   list-style: none;
+ }
+ label{
+   color: #fff;
+   text-shadow: .5px .5px .5px black;
+   font-size: 16px;
+ }
+ .formStyle1 {
+     margin:5px auto;
+     max-width: 500px;
+     padding: 10px 6px 5px 10px;
+     font: 14px Avenir;
+     font-weight: lighter;
+ }
+ .formStyle1 li {
+     padding: 0;
+     display: block;
+     margin: 5px 0 0 0;
+ }
+ .formStyle1 label{
+     margin:0 0 3px 0;
+     padding:0px;
+     display:block;
+     font-weight:lighter;
+ }
+ .formStyle1 input[type=text],
+ .formStyle1 input[type=date],
+ .formStyle1 input[type=datetime],
+ .formStyle1 input[type=number],
+ .formStyle1 input[type=search],
+ .formStyle1 input[type=time],
+ .formStyle1 input[type=url],
+ .formStyle1 input[type=email],
+ textarea,
+ select{
+     box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     border:1px solid #BEBEBE;
+     padding: 7px;
+     margin:0px;
+     -webkit-transition: all 0.30s ease-in-out;
+     -moz-transition: all 0.30s ease-in-out;
+     -ms-transition: all 0.30s ease-in-out;
+     -o-transition: all 0.30s ease-in-out;
+     outline: none;
+ }
+ .formStyle1 input[type=text]:focus,
+ .formStyle1 input[type=date]:focus,
+ .formStyle1 input[type=datetime]:focus,
+ .formStyle1 input[type=number]:focus,
+ .formStyle1 input[type=search]:focus,
+ .formStyle1 input[type=time]:focus,
+ .formStyle1 input[type=url]:focus,
+ .formStyle1 input[type=email]:focus,
+ .formStyle1 textarea:focus,
+ .formStyle1 select:focus{
+     -moz-box-shadow: 0 0 8px #88D5E9;
+     -webkit-box-shadow: 0 0 8px #88D5E9;
+     box-shadow: 0 0 8px #88D5E9;
+     border: 1px solid #88D5E9;
+ }
+ .App-form{
+   background-color: #4B99AD;
+   padding-top: 3%;
+ }
+ .formStyle1 .fieldLong{
+     width: 100%;
+     box-shadow: 1px 1px 1px black;
+ }
+ .formStyle1 .fieldSelect{
+     width: 100%;
+     box-shadow: 1px 1px 1px black;
+ }
+ .formStyle1 .fieldTextarea{
+     height: 100px;
+ }
+ .formStyle1 .fieldPhoto{
+   box-shadow: 1px 1px 1px black;
+   width: 100%;
+ }
+ .formStyle1 input[type=submit], .formStyle1 input[type=button]{
+     background: #4B99AD;
+     padding: 8px 10px 8px 10px;
+     border: none;
+     color: #fff;
+     font-size: 18px;
+     text-shadow: .5px .5px .5px black;
+ }
+ .formStyle1 input[type=submit]:hover, .formStyle1 input[type=button]:hover{
+     background: #4691A4;
+     box-shadow:none;
+     -moz-box-shadow:none;
+     -webkit-box-shadow:none;
+ }
+ .formStyle1 .required{
+     color:red;
+ }
+ .petImage{
+   height: 350px;
+   width: 350px;
+ }
 
  /**********
  FOOTER STYLING
  **********/
  footer{
    text-align: center;
-   height: 75px;
+   height: 150px;
    width: 100%;
-   background-color: lightgrey;
-   /*border-radius: 25px;*/
-   color: white;
+   background-color: grey;
+   color: black;
    padding-top: 30px;
-   font-family: arial;
+   font-family: Avenir;
    font-size: 22px;
-   text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
+   text-shadow: 2px 1px 2px rgba(150, 150, 150, 1);
+ }
+ /*****************
+ GOOGLE MAP STYLING
+ *****************/
+ div#map {
+   height: 300px;
+   width: 100vw;
  }
