@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import banner from './banner.svg';
+// import banner from './banner.svg';
 import './App.css';
 
 class App extends Component {
@@ -168,11 +168,11 @@ class App extends Component {
       <div
       className="App-header"
       >
-      <img
-      src={banner}
-      className="banner"
-      alt="banner"
-      />
+      // <img
+      // src={banner}
+      // className="banner"
+      // alt="banner"
+      // />
       </div>
       </div>
     );

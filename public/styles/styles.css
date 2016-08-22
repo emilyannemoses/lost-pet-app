@@ -80,7 +80,7 @@ div.cat{
   width: 400px;
   border: 2px solid grey;
   display: inline-block;
-  margin: 5px 5px auto;
+  margin: 1% auto 1% 2%;
 }
 button{
   margin-top: 5px;
@@ -224,6 +224,9 @@ button{
  .petImage{
    height: 350px;
    width: 350px;
+ }
+ #submit{
+   border: 1px solid cornflowerblue;
  }
 
  /**********
