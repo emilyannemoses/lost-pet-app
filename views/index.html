@@ -3,29 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Lost Pet Finder</title>
   <link rel="icon" href="https://s-media-cache-ak0.pinimg.com/236x/08/3b/cb/083bcbed388a1136d2aea2054f53cddb.jpg">
-
-
   <!-- STYLESHEETS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css">
-
   <!-- SCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
   <!-- Google Maps API -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCnfvvaUciotZGiTU_Zbyjda3Gw6vDtw&callback=initMap&libraries=places"
   async defer></script>
-
   <!-- APPLICATION SCRIPTS -->
   <script src="scripts/app.js"></script>
   <script src="scripts/reactScript.js"></script>
 </head>
-
 <body>
   <!-- INFO BUTTON TEXT AND CLOSE POPUP BUTTON -->
   <div class = "container">
@@ -34,7 +27,7 @@
       <a name="jump"><div class="pop hidden"></a>
         <button name = "button" class="close">X &nbsp;&nbsp;&nbsp;</button>
         <h2>
-          <p>Use the map to locate pet adoption centers and other pet-related<p></p>businesses in the San Francisco Bay Area.</p><br>
+          <p>Use the map below to locate pet adoption centers and other pet-related<p></p>businesses in the San Francisco Bay Area.</p><br>
           <p>If your pet has lost his way home,<p></p> please post their picture along with your email address.</p><br>
           <p>If you've found your pet, simply click 'I Found This Pet'</p>
           <p>and it will delete your pet from our site.</p>
@@ -50,7 +43,6 @@
       <p class="App-description">
         Post a picture of your lost pet along with your email and location so our community can help you locate them!
       </p>
-
       <div class="App-form">
         <form method="post" class="form-horizontal" id="newCatForm">
 
@@ -125,7 +117,6 @@
       placeholder="http://www.dogz.com/my-cute-pup.jpg"
       />
     </li>
-
     <li>
       <input
       id="submit"
@@ -137,7 +128,6 @@
 </ul>
 </form>
 </div>
-
 <div class="banner">
   <img src="http://static1.squarespace.com/static/551c2806e4b0d35570d3026b/t/551d8cefe4b0404100cad28c/1427999983818/dog-and-cat-above-white-banner-looking-at-camera-53f7f2fb7aca4-1000x450.jpg" />
 </div>
@@ -146,25 +136,22 @@
 <!-- BEGIN HANDLEBARS -->
 <section id="cat-form">
   <div id="cats">
+    <!-- <div class="panel body"> -->
     <!-- handlebars template -->
     <script id="cat-template" type="text/x-handlebars-template">
-      <div class="row cat" data-cat-id="{{_id}}">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="col-md-12">
+      <div class="cat" data-cat-id="{{_id}}">
                 <ul class="list-group">
                   <li class="list-group-item">
                     <span class='petName'>{{petName}}</span>
                   </li>
                   <li class="list-group-item">
-                    <span class='pictureUrl'><img class="picUrlClass" src="{{pictureUrl}}" height=350px width=450px alt="Lost Cat Picture"></span>
+                    <span class='pictureUrl'><img class="picUrlClass" src="{{pictureUrl}}" height=150px width=200px alt="Lost Pet Picture"></span>
                   </li>
                   <li class="list-group-item">
-                    <span class='locationLastSeen'>{{locationLastSeen}}</span>
+                    <span class='locationLastSeen'>Last Seen: {{locationLastSeen}}</span>
                   </li>
                   <li class="list-group-item">
-                    <span class='dateLastSeen'>{{dateLastSeen}}</span>
+                    <span class='dateLastSeen'>Date Last Seen: {{dateLastSeen}}</span>
                   </li>
                   <li class="list-group-item">
                     {{#each owners}}
@@ -172,25 +159,18 @@
                     {{/each}}
                   </li>
                 </ul>
-              </div>
-            </div>
             <!-- end of album internal row -->
-
-            <div class='panel-footer'>
-              <div class='panel-footer'>
+              <!-- <div class='panel-footer'> -->
                 <button class='owner-email btn btn-primary'>Submit Pet Owner's Email</button>
                 <button class='btn btn-danger delete-cat'>I Found This Pet</button>
                 <button class='btn btn-info edit-cat'>Edit Pet Information</button>
                 <button class='btn btn-success save-cat hidden'>Save Changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
+              <!-- </div> -->
       </div>
-    </div>
     <!-- end one album -->
-  </script>
-</div>
+    </script>
+   <!-- </div> -->
+  </div>
 </section>
 
 <!-- begin ownerModal: this is not visible until you call .modal() on it -->
@@ -219,13 +199,15 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="map"></div>
 <footer>
   <p>
-    &copy; 2016 Emily Anne Moses, Cat Lover
+     🐱  ❤️  🐱
+  </p>
+  <p>
+    &copy; 2016 Emily Anne Moses
   </p>
 </footer>
-
+<!-- <div id="map"></div> -->
 <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
 <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
 </body>

@@ -1,33 +1,37 @@
-/************************
-FORMS AND BUTTONS STYLING
-************************/
-/*.col-md-7{
-  margin-top: 3%;
-}
-button{
-  margin: 5px 5px 5px 5px;
-}*/
-
-/*************
-HEADER STYLING
-*************/
-/*div .banner{
+/***************************
+TOP/MAIN ITEM PAGE ALIGNMENT
+***************************/
+html{
   margin: 0;
-  width: 100%;
-}*/
-
-/************************
-CONTENT WITHIN HANDLEBARS
-************************/
-/*.list-group-item{
   font-family: Avenir;
-  font-size: 24px;
 }
-img{
-  border-radius: 15px;
-}*/
-
-
+.App {
+  text-align: center;
+}
+.banner{
+  width: 100%;
+  height: 25%;
+  align-items: center;
+}
+.form-horizontal {
+  width: 100%;
+}
+.App-intro {
+  margin-top: 3%;
+  font-size: 24px;
+  font-family: Avenir;
+}
+.App-description{
+  font-size: 14px;
+  font-famiy: Avenir;
+  margin-bottom: 1%;
+}
+.inline-header {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 12px;
+  margin-top: 0;
+}
 /*****************
 INFO POPUP STYLING
 *****************/
@@ -67,48 +71,24 @@ div.container{
   background-color: grey;
   width: 100%;
 }
+/*********************
+MAIN CAT CARD STYLING
+**********************/
 
- /***************************
- TOP/MAIN ITEM PAGE ALIGNMENT
- ***************************/
-
- html{
-   margin: 0;
-   font-family: Avenir;
- }
- .App {
-   text-align: center;
- }
- .banner{
-   width: 100%;
-   height: 25%;
-   align-items: center;
- }
- .form-horizontal {
-   width: 100%;
- }
- .App-intro {
-   margin-top: 3%;
-   font-size: 24px;
-   font-family: Avenir;
- }
- .App-description{
-   font-size: 14px;
-   font-famiy: Avenir;
-   margin-bottom: 1%;
- }
-
- .inline-header {
-   display: inline-block;
-   vertical-align: baseline;
-   margin-right: 12px;
-   margin-top: 0;
- }
-
+div.cat{
+  height: 500px;
+  width: 400px;
+  border: 2px solid grey;
+  display: inline-block;
+  margin: 5px 5px auto;
+}
+button{
+  margin-top: 3px;
+  margin-left: 15px;
+}
  /**************************************
  SEARCH LOST PETS LINK AND SUBMIT BUTTON
  **************************************/
-
  .searchLost{
    font-size: 20px;
    background: #4B99AD;
@@ -142,7 +122,6 @@ div.container{
  /**********
  FORM STYLES
  ***********/
-
  ul{
    list-style: none;
  }
@@ -252,13 +231,13 @@ div.container{
  **********/
  footer{
    text-align: center;
-   height: 150px;
+   height: 100px;
    width: 100%;
    background-color: grey;
    color: black;
    padding-top: 30px;
    font-family: Avenir;
-   font-size: 22px;
+   font-size: 18px;
    text-shadow: 2px 1px 2px rgba(150, 150, 150, 1);
  }
  /*****************
