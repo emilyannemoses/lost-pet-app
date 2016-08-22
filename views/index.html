@@ -164,11 +164,11 @@
                   <li class="list-group-item">
                     <span class='pictureUrl'><img class="picUrlClass" src="{{pictureUrl}}" height=150px width=200px alt="Lost Pet Picture"></span>
                   </li>
-                  <li class="list-group-item">
-                    <span class='locationLastSeen'>Last Seen: {{locationLastSeen}}</span>
+                  <li class="list-group-item">Last Seen:
+                    <span class='locationLastSeen'>{{locationLastSeen}}</span>
                   </li>
-                  <li class="list-group-item">
-                    <span class='dateLastSeen'>Date Last Seen: {{dateLastSeen}}</span>
+                  <li class="list-group-item">Date Last Seen:
+                    <span class='dateLastSeen'>{{dateLastSeen}}</span>
                   </li>
                   <li class="list-group-item">
                     {{#each owners}}
@@ -179,8 +179,8 @@
             <!-- end of album internal row -->
                 <button class='owner-email btn btn-primary'>Add Email</button>
                 <button class='btn btn-info edit-cat'>Edit Information</button>
-                <button class='btn btn-danger delete-cat'>Remove Pet</button>
                 <button class='btn btn-success save-cat hidden'>Save Changes</button>
+                <button class='btn btn-danger delete-cat'>Remove Pet</button>
       </div>
     <!-- end one album -->
     </script>
