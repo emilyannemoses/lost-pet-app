@@ -45,7 +45,7 @@
       </p>
       <div class="App-form">
         <form method="post" class="form-horizontal" id="newCatForm">
-
+          <fieldset>
           <ul class="formStyle1">
 
             <li>
@@ -55,16 +55,16 @@
                 </span>
               </label>
               <input
-              id="name"
+              id="petName"
               type="text"
-              name="field1"
+              name="petName"
               class="fieldLong"
               placeholder="Pet Name"
               />
             </li>
 
-            <li>
-              <label>
+            <!-- <li>
+              <label class="emailClass">
                 Owners Email
                 <span
                 class="required"
@@ -74,16 +74,16 @@
             </label>
             <input
             id="email"
-            type="email"
-            name="field3"
+            type="text"
+            name="email"
             class="fieldLong"
             placeholder="example@example.com"
             />
-          </li>
+          </li> -->
 
           <li>
-            <label>
-              Last Seen
+            <label class="locationClass">
+              Location Last Seen
               <span
               class="required"
               >
@@ -92,8 +92,8 @@
           </label>
           <input
           type="text"
-          name="field5"
-          id="field5"
+          name="locationLastSeen"
+          id="locationLastSeen"
           class="fieldLong fieldTextArea"
           placeholder="Location"
           >
@@ -101,7 +101,26 @@
       </li>
 
       <li>
-        <label>
+        <label class="dateClass">
+          Date Last Seen
+          <span
+          class="required"
+          >
+          *
+        </span>
+      </label>
+      <input
+      type="text"
+      name="dateLastSeen"
+      id="dateLastSeen"
+      class="fieldLong fieldTextArea"
+      placeholder="Date Last Seen"
+      >
+    </input>
+  </li>
+
+      <li>
+        <label class="pictureClass">
           Picture URL
           <span
           class="required"
@@ -110,9 +129,9 @@
         </span>
       </label>
       <input
-      id="picture"
+      id="pictureUrl"
       type="text"
-      name="field4"
+      name="pictureUrl"
       class="fieldPhoto"
       placeholder="http://www.dogz.com/my-cute-pup.jpg"
       />
@@ -126,6 +145,7 @@
     </input>
   </li>
 </ul>
+</fieldset>
 </form>
 </div>
 <div class="banner">
@@ -136,7 +156,6 @@
 <!-- BEGIN HANDLEBARS -->
 <section id="cat-form">
   <div id="cats">
-    <!-- <div class="panel body"> -->
     <!-- handlebars template -->
     <script id="cat-template" type="text/x-handlebars-template">
       <div class="cat" data-cat-id="{{_id}}">
@@ -155,21 +174,18 @@
                   </li>
                   <li class="list-group-item">
                     {{#each owners}}
-                    <span><a href="mailto:" target="_blank"><br>Email The Owner<p>{{email}}</p></a></span>
+                    <span>Contact the Owner<p><a href="mailto:" target="_blank">{{email}}</a></p></span>
                     {{/each}}
                   </li>
                 </ul>
             <!-- end of album internal row -->
-              <!-- <div class='panel-footer'> -->
                 <button class='owner-email btn btn-primary'>Submit Pet Owner's Email</button>
                 <button class='btn btn-danger delete-cat'>I Found This Pet</button>
                 <button class='btn btn-info edit-cat'>Edit Pet Information</button>
                 <button class='btn btn-success save-cat hidden'>Save Changes</button>
-              <!-- </div> -->
       </div>
     <!-- end one album -->
     </script>
-   <!-- </div> -->
   </div>
 </section>
 
@@ -207,7 +223,7 @@
     &copy; 2016 Emily Anne Moses
   </p>
 </footer>
-<!-- <div id="map"></div> -->
+<div id="map"></div>
 <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
 <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
 </body>

@@ -11,9 +11,10 @@ var CatSchema = new Schema({
   pictureUrl: String,
   dateLastSeen: String,
   locationLastSeen: String,
+  email: String,
   owners: [Owner.schema]
 });
 
-/*EXPORTING CAT SCHEMA TO MONGOOSE AND INDEX.JS MDOEL*/
+/*EXPORTING CAT SCHEMA TO MONGOOSE AND INDEX.JS MODEL*/
 var Cat = mongoose.model('Cat', CatSchema);
 module.exports = Cat;

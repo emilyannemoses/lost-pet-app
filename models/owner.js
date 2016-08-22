@@ -4,6 +4,8 @@ EMBEDDED SCHEMA
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+var Cat = require('./cat');
+
 var OwnerSchema = new Schema({
     email: String
 });

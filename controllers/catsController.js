@@ -45,6 +45,7 @@ function update(req, res) {
     foundCat.pictureUrl = req.body.pictureUrl;
     foundCat.locationLastSeen = req.body.locationLastSeen;
     foundCat.dateLastSeen = req.body.dateLastSeen;
+    foundCat.email = req.body.email;
     foundCat.save(function(err, savedCat) {
       if(err) { console.log('saving altered cat failed'); }
       res.json(savedCat);

@@ -7,6 +7,7 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                       "mongodb://localhost/project-01" );
 
 var Cat = require('./cat');
+var Owner = require('./owner');
 
 module.exports.Cat = Cat;
 module.exports.Owner = require('./owner');

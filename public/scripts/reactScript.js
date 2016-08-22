@@ -70,25 +70,17 @@ class App extends Component {
       </span>
       </label>
       <input
-      id="firstName"
+      id="petName"
       type="text"
-      name="field1"
-      className="fieldDivided"
-      placeholder="First"
+      name="petName"
+      className="fieldLong"
+      placeholder="Pet Name"
       />
       &nbsp;
-
-      <input
-      id="lastName"
-      type="text"
-      name="field2"
-      className="fieldDivided"
-      placeholder="Last"
-      />
       </li>
 
       <li>
-      <label>
+      <label className="emailClass">
       Owners Email
       <span
       className="required"
@@ -98,16 +90,16 @@ class App extends Component {
       </label>
       <input
       id="email"
-      type="email"
-      name="field3"
+      type="text"
+      name="email"
       className="fieldLong"
       placeholder="example@example.com"
       />
       </li>
 
       <li>
-      <label>
-      Last Seen
+      <label className="locationClass">
+      Location Last Seen
       <span
       className="required"
       >
@@ -116,16 +108,35 @@ class App extends Component {
       </label>
       <input
       type="text"
-      name="field5"
-      id="field5"
+      name="locationLastSeen"
+      id="locationLastSeen"
       className="fieldLong fieldTextArea"
-      placeholder="Location"
+      placeholder="Location Last Seen"
       >
       </input>
       </li>
 
       <li>
-      <label>
+      <label className="dateClass">
+      Date Last Seen
+      <span
+      className="required"
+      >
+      *
+      </span>
+      </label>
+      <input
+      type="text"
+      name="dateLastSeen"
+      id="dateLastSeen"
+      className="fieldLong fieldTextArea"
+      placeholder="Date Last Seen"
+      >
+      </input>
+      </li>
+
+      <li>
+      <label className="pictureClass">
       Picture URL
       <span
       className="required"
@@ -134,9 +145,9 @@ class App extends Component {
       </span>
       </label>
       <input
-      id="picture"
+      id="pictureUrl"
       type="text"
-      name="field4"
+      name="pictureUrl"
       className="fieldPhoto"
       placeholder="http://www.dogz.com/my-cute-pup.jpg"
       />
