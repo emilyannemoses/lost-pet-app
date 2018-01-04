@@ -1,12 +1,10 @@
-#Pet Finder
-
-Created by Emily Anne Moses
+Pet Finder
 
 The main functionality of the Pet Finder is to be able to post lost pets, their pictures, names, and the last date and location they were seen.  Their owners are able to include their email to be contacted if their pet is found.
 
 Link to Live site on Heroku: http://protected-sea-74069.herokuapp.com
 
-##Technologies Used:
+Technologies Used:
 * ReactJS
 * jQuery
 * JavaScript
@@ -20,7 +18,7 @@ Link to Live site on Heroku: http://protected-sea-74069.herokuapp.com
 * MongoDB
 * Heroku
 
-##Existing Features:
+Existing Features:
 * Creating new lost pet with name, picture, location and date
 * Read all existing pets
 * Updating information on a lost pet
@@ -31,7 +29,7 @@ Link to Live site on Heroku: http://protected-sea-74069.herokuapp.com
 Planned Features:
 * Create log-in for owners to manage their lost pets
 
-##Screenshot:
+Screenshot:
 
 ![Alt text](public/images/readmeScreenShot.png?raw=true "PetFinder")
 
