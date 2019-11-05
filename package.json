@@ -21,7 +21,7 @@
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",
     "express": "^4.13.4",
-    "mongoose": "^4.4.11",
+    "mongoose": "^5.7.8",
     "nodemon": "^1.9.1"
   }
 }
